@@ -157,6 +157,99 @@
   }
   .principle-body { font-size: 0.8rem; color: var(--muted); line-height: 1.75; max-width: 190px; }
 
+  /* ── SERVICE CARDS ─────────────────────────────────────── */
+  .services-section {
+    margin-top: 60px;
+    padding-top: 44px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.42s ease forwards;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+    text-align: left;
+  }
+
+  .service-card {
+    background: #fff;
+    border: 1px solid var(--bg2);
+    border-radius: 10px;
+    padding: 28px 26px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.63rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-dk);
+    margin-bottom: 10px;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--slate);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .card-body {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .card-list {
+    list-style: none;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .card-list li {
+    font-size: 0.82rem;
+    color: var(--slate);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--bg2);
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    line-height: 1.5;
+  }
+  .card-list li:last-child { border-bottom: none; }
+
+  .card-list li::before {
+    content: '·';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .card-best {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.6;
+    padding-top: 14px;
+    border-top: 1px solid var(--bg2);
+    margin-top: auto;
+  }
+
+  .services-btn-wrap {
+    text-align: center;
+    margin-top: 44px;
+  }
+
   footer {
     margin-top: 64px;
     padding-top: 24px;
@@ -182,6 +275,7 @@
     .col-divider { display: none; }
     .hero-statement { font-size: 1.65rem; }
     .inst-item { grid-template-columns: 1fr; gap: 2px 0; }
+    .services-grid { grid-template-columns: 1fr; }
     .principles-row { gap: 40px; }
   }
 </style>
@@ -237,9 +331,6 @@
           <div><div class="trigger-title">A business case needs building</div><div class="trigger-detail">TCO modeling, alternative analysis, approval support</div></div>
         </li>
       </ul>
-      <div class="btn-wrap">
-        <a href="mailto:jacob@acuitysourcing.com" class="contact-btn">Get in Touch</a>
-      </div>
     </div>
 
     <div class="col-divider"></div>
@@ -293,6 +384,58 @@
         <p class="principle-body">Vendors price from your ceiling down, not from cost up.</p>
       </div>
     </div>
+  </div>
+
+  <div class="services-section">
+    <span class="section-label">How We Can Work Together</span>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="card-tag">Project-based</div>
+        <div class="card-title">Advisory</div>
+        <p class="card-body">Deal strategy and negotiation support for active software purchases, renewals, and competitive bids.</p>
+        <ul class="card-list">
+          <li>Renewal strategy and leverage development</li>
+          <li>Competitive bid and RFP management</li>
+          <li>Master agreement renegotiation</li>
+          <li>Contract redline and commercial term review</li>
+          <li>Business case development and TCO modeling</li>
+        </ul>
+        <p class="card-best">Best for: teams with an active deal, an upcoming renewal, or a contract that needs a second set of eyes.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="card-tag">Project-based</div>
+        <div class="card-title">License Intelligence</div>
+        <p class="card-body">Forensic work on your software estate — what you own, what you've deployed, and where the gaps are.</p>
+        <ul class="card-list">
+          <li>Entitlement audit — reconcile owned vs. deployed</li>
+          <li>Audit defense and vendor claim response</li>
+          <li>License consolidation across multiple contracts</li>
+          <li>Post-M&amp;A software asset management</li>
+          <li>ITAM governance design</li>
+        </ul>
+        <p class="card-best">Best for: organizations that have grown through acquisition, experienced rapid headcount changes, or are heading into a vendor audit.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="card-tag">Day rate &middot; Retainer</div>
+        <div class="card-title">Enablement</div>
+        <p class="card-body">Your team negotiates software deals every few years. Vendors negotiate them every day. Enablement closes that gap.</p>
+        <ul class="card-list">
+          <li>Sales Tactics Awareness &mdash; half-day session</li>
+          <li>Three Principles Workshop &mdash; full-day program</li>
+          <li>Coaching for procurement and finance leads</li>
+        </ul>
+        <p class="card-best">Best for: procurement teams, finance leaders, and internal sourcing groups looking to sharpen their commercial edge.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="services-btn-wrap">
+    <a href="mailto:jacob@acuitysourcing.com" class="contact-btn">Get in Touch</a>
   </div>
 
   <footer>
