@@ -1,8 +1,8 @@
+cd ~/Downloads/acuity_site 
 
-# Unzip, then from that folder:
 git init
-git add .
-git commit -m "initial"
+git add index.html vercel.json 404.html
+git commit -m "add site files"
 git branch -M main
 git remote add origin https://github.com/jakevig-design/acuity-site.git
-git push -u origin main
+git push -u origin main --force
