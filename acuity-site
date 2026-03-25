@@ -1,4 +1,4 @@
-cd ~/Downloads/acuity_site 
+cd ~/Downloads/acuity_site #
 
 git init
 git add index.html vercel.json 404.html
