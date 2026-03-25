@@ -1,1 +1,8 @@
 
+# Unzip, then from that folder:
+git init
+git add .
+git commit -m "initial"
+git branch -M main
+git remote add origin https://github.com/jakevig-design/acuity-site.git
+git push -u origin main
