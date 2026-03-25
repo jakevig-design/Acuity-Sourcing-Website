@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acuity Sourcing — Jake Vigneri</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold:     #B8860B;
+    --gold-lt:  #D4A827;
+    --gold-dim: rgba(184,134,11,0.15);
+    --dark:     #0E0E14;
+    --surface:  #13131A;
+    --mid:      #1E1E2A;
+    --text:     #E2DDD6;
+    --muted:    rgba(226,221,214,0.45);
+    --rule:     rgba(184,134,11,0.3);
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── GRAIN OVERLAY ─────────────────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* ── WRAPPER ───────────────────────────────────────────── */
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 72px 48px 96px;
+  }
+
+  /* ── HEADER ────────────────────────────────────────────── */
+  header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 52px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .wordmark span { color: var(--gold); }
+
+  .contact {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+  }
+  .contact a { color: var(--gold); text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
+  /* ── HERO ──────────────────────────────────────────────── */
+  .hero {
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.15s ease forwards;
+  }
+
+  .hero-statement {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 20px;
+    max-width: 640px;
+  }
+
+  .hero-body {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 680px;
+    line-height: 1.8;
+  }
+
+  /* ── SECTION LABEL ─────────────────────────────────────── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  /* ── TWO-COLUMN LAYOUT ─────────────────────────────────── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0 52px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.3s ease forwards;
+  }
+
+  .col-divider {
+    background: var(--rule);
+    align-self: stretch;
+  }
+
+  .col { padding: 0; }
+  .col + .col-divider + .col { }
+
+  /* ── WHEN TO CALL ──────────────────────────────────────── */
+  .trigger-list { list-style: none; }
+
+  .trigger-item {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 0 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .trigger-item:last-child { border-bottom: none; }
+
+  .trigger-arrow {
+    color: var(--gold);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    font-family: 'DM Mono', monospace;
+    padding-top: 1px;
+  }
+
+  .trigger-content {}
+
+  .trigger-title {
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .trigger-detail {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 1px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── CONTACT BUTTON ───────────────────────────────────── */
+  .contact-btn {
+    display: inline-block;
+    margin-top: 36px;
+    padding: 12px 28px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .contact-btn:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  /* ── PRINCIPLES (full-width centered) ─────────────────── */
+  .principles-full {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s ease forwards;
+  }
+
+  .principles-intro {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+
+  .principles-row {
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    flex-wrap: wrap;
+  }
+
+  .principle-card {
+    flex: 0 0 auto;
+    text-align: center;
+  }
+
+  .principle-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .principle-body {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 200px;
+  }
+
+  /* ── INSTITUTIONS ──────────────────────────────────────── */
+  .inst-list { list-style: none; }
+
+  .inst-item {
+    display: grid;
+    grid-template-columns: 148px 1fr;
+    gap: 0 16px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: baseline;
+  }
+  .inst-item:last-child { border-bottom: none; }
+
+  .inst-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+  }
+
+  .inst-detail {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── FOOTER ────────────────────────────────────────────── */
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.45s ease forwards;
+  }
+
+  footer .footer-brand {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* ── ANIMATIONS ────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── GOLD ACCENT LINE ──────────────────────────────────── */
+  .accent-line {
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s ease forwards;
+  }
+
+  /* ── RESPONSIVE ────────────────────────────────────────── */
+  @media (max-width: 720px) {
+    .page { padding: 40px 24px 72px; }
+    .two-col { grid-template-columns: 1fr; gap: 48px 0; }
+    .col-divider { display: none; }
+    header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .contact { text-align: left; }
+    .hero-statement { font-size: 1.6rem; }
+    .inst-item { grid-template-columns: 1fr; gap: 2px 0; }
+    .principle { grid-template-columns: 1fr; gap: 4px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="wordmark">ACUITY <span>SOURCING</span></div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-statement">I help companies get better outcomes in software deals.</div>
+    <p class="hero-body">
+      Software vendors train their teams for months before talking to a customer. They know your dependencies,
+      your renewal dates, and often your budget before you know their price. Most organizations are ill equipped.
+      I bring 20 years of enterprise software negotiation and license management experience to help you succeed
+      on the deals that matter.
+    </p>
+  </div>
+
+  <!-- TWO COLUMN -->
+  <div class="two-col">
+
+    <!-- LEFT -->
+    <div class="col">
+      <div class="section-label">When to Call Me</div>
+      <ul class="trigger-list">
+        <li class="trigger-item">
+          <span class="trigger-arrow">→</span>
+          <div class="trigger-content">
+            <div class="trigger-title">A renewal is 6–18 months out</div>
+            <div class="trigger-detail">position development, benchmarking, leverage strategy</div>
+          </div>
+        </li>
+        <li class="trigger-item">
+          <span class="trigger-arrow">→</span>
+          <div class="trigger-content">
+            <div class="trigger-title">A competitive bid needs to be run</div>
+            <div class="trigger-detail">RFP structure, vendor evaluation, quote normalization</div>
+          </div>
+        </li>
+        <li class="trigger-item">
+          <span class="trigger-arrow">→</span>
+          <div class="trigger-content">
+            <div class="trigger-title">A master agreement needs renegotiation</div>
+            <div class="trigger-detail">post-M&amp;A, model change, or terms that have drifted</div>
+          </div>
+        </li>
+        <li class="trigger-item">
+          <span class="trigger-arrow">→</span>
+          <div class="trigger-content">
+            <div class="trigger-title">Nobody knows what software they own</div>
+            <div class="trigger-detail">entitlement audit, audit defense, license reconciliation</div>
+          </div>
+        </li>
+        <li class="trigger-item">
+          <span class="trigger-arrow">→</span>
+          <div class="trigger-content">
+            <div class="trigger-title">Multiple contracts with the same vendor</div>
+            <div class="trigger-detail">consolidation into a single optimized agreement</div>
+          </div>
+        </li>
+        <li class="trigger-item">
+          <span class="trigger-arrow">→</span>
+          <div class="trigger-content">
+            <div class="trigger-title">A deal needs a second set of eyes</div>
+            <div class="trigger-detail">contract redline, commercial term review, negotiation position</div>
+          </div>
+        </li>
+        <li class="trigger-item">
+          <span class="trigger-arrow">→</span>
+          <div class="trigger-content">
+            <div class="trigger-title">A business case needs building</div>
+            <div class="trigger-detail">TCO modeling, alternative analysis, approval support</div>
+          </div>
+        </li>
+      </ul>
+      <div style="text-align:center; margin-top:36px;">
+        <a href="mailto:jacob@acuitysourcing.com" class="contact-btn">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="col-divider"></div>
+
+    <!-- RIGHT -->
+    <div class="col">
+      <div class="section-label">Where It Comes From</div>
+      <ul class="inst-list">
+        <li class="inst-item">
+          <span class="inst-name">GE Vernova</span>
+          <span class="inst-detail">Global engineering software sourcing, $50M+ spend. Built the function from scratch for a newly independent company.</span>
+        </li>
+        <li class="inst-item">
+          <span class="inst-name">GE Company</span>
+          <span class="inst-detail">Retained as a consultant to renegotiate dozens of software master license agreements ahead of the GE corporate split.</span>
+        </li>
+        <li class="inst-item">
+          <span class="inst-name">BlackRock</span>
+          <span class="inst-detail">Trading platform negotiations under strict information discipline — contracts timed around earnings windows and press schedules.</span>
+        </li>
+        <li class="inst-item">
+          <span class="inst-name">Federal Reserve NY</span>
+          <span class="inst-detail">Category management under strict competitive bidding policy. Leadership development program.</span>
+        </li>
+        <li class="inst-item">
+          <span class="inst-name">Moody's Analytics</span>
+          <span class="inst-detail">OEM and derivative works licensing for embedded third-party software in commercial analytics products. Built the ITAM function.</span>
+        </li>
+        <li class="inst-item">
+          <span class="inst-name">Macmillan Publishers</span>
+          <span class="inst-detail">Built a procure-to-pay system from scratch. $1M first-year savings. Reported directly to the CIO.</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- THREE PRINCIPLES (full width, centered) -->
+  <div class="principles-full">
+    <div class="section-label" style="margin-bottom:16px;">The Three Principles</div>
+    <p class="principles-intro">Every software deal outcome traces back to three variables:</p>
+    <div class="principles-row">
+      <div class="principle-card">
+        <span class="principle-name">Time</span>
+        <p class="principle-body">18 months of runway is leverage. 60 days is a transaction.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-name">Information</span>
+        <p class="principle-body">Budget disclosed is leverage surrendered.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-name">Right Price</span>
+        <p class="principle-body">Vendors price from your ceiling down, not from cost up.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span><span class="footer-brand">ACUITY SOURCING</span> &nbsp;·&nbsp; Software Procurement Advi
