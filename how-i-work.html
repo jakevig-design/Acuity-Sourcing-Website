@@ -1,1 +1,184 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I Work · Acuity Sourcing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7f6; --bg-warm: #eeeeec;
+    --ink: #131313; --ink-soft: #2a2a2a; --ink-muted: #6a6a6a;
+    --accent: #5e8b3f; --accent-soft: #7fa85f;
+    --rule: #d8d8d5; --paper: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg); border-bottom: 1px solid var(--rule);
+    padding: 20px 32px;
+  }
+  .nav-inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .nav-logo { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+  .nav-logo em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .nav-links { display: flex; gap: 36px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; }
+  .nav-links a:hover, .nav-links a.current { color: var(--accent); }
+
+  .page { padding: 100px 32px 120px; }
+  .page-inner { max-width: 820px; margin: 0 auto; }
+  .page-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(44px, 5.5vw, 64px);
+    font-weight: 400; letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 48px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .intro {
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    padding-bottom: 48px;
+  }
+  .transition {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--ink);
+    margin: 48px 0 64px;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent);
+  }
+
+  .service {
+    padding: 56px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .service:last-of-type { border-bottom: 1px solid var(--rule); }
+  .service h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+  .service p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+  .service .for {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-muted);
+    margin-top: 28px;
+    padding: 20px 0 0;
+    border-top: 1px dashed var(--rule);
+  }
+
+  .closer {
+    margin-top: 64px;
+  }
+  .closer h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .closer p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  footer {
+    padding: 40px 32px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 720px) {
+    .page { padding: 60px 24px 80px; }
+    .nav-links { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Acuity <em>Sourcing</em></a>
+    <div class="nav-links">
+      <a href="/how-i-work" class="current">What I Do</a>
+      <a href="/work">Work</a>
+      <a href="/writing/software-expensive">Writing</a>
+      <a href="/about">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="page-label">How I Work</div>
+    <h1>The work before the <em>vendor shows up.</em></h1>
+
+    <p class="intro">When a company calls me, something is usually already in motion. Sometimes the renewal is six months out and there's runway to do the work properly. Sometimes the RFP is going out in two weeks and the requirements still aren't nailed down. Sometimes the deal is a week from signature and the team needs help with the last round of redlines. The specifics vary. The work at the center is usually the same: close the gap between where the internal preparation is and where it needs to be to get the deal right.</p>
+
+    <div class="transition">Here's what I do most often.</div>
+
+    <div class="service">
+      <h2>Requirements Development</h2>
+      <p>Most buying organizations think of requirements as a technical exercise. They're a commercial one. A well-written requirement narrows the vendor field, defeats the "unique differentiator" pitch, and gives the buying team an objective basis for saying no. A poorly written one invites scope creep and lets the vendor reframe the deal on their terms. I work with stakeholders to translate vague business intent into requirements that are specific, testable, and commercially defensible, in a format that holds up through the full negotiation and into the contract.</p>
+      <p class="for">For: teams at the front end of a purchase, before a vendor has been selected or an RFP has gone out.</p>
+    </div>
+
+    <div class="service">
+      <h2>Competitive Bid Design</h2>
+      <p>A competitive bid is the single most powerful commercial lever a buying organization has, and it is almost always used poorly. Most RFPs are over-engineered on process and under-engineered on strategy. Too many unenforced deal-breaker conditions, too little executive alignment on what success looks like, too little clarity on who can actually kill the deal. I design and run competitive bids that do what they're supposed to do: create genuine vendor competition, preserve leverage through the process, and arrive at a defensible selection with an executive sponsor who's bought in from day one.</p>
+      <p class="for">For: teams running an active RFP, or considering one, where the stakes justify doing it right.</p>
+    </div>
+
+    <div class="service">
+      <h2>Deal Strategy and Negotiation Support</h2>
+      <p>Once the business case is sound, the next set of decisions is about how the deal actually gets run. Competitive bid or sole source. What the organization is optimizing for: price, commercial terms, implementation speed, flexibility, exit rights. What the must-have outcomes are and what can be traded. These decisions shape everything downstream, and they get made better with someone who has sat across the table from hundreds of vendors on the buyer's side.</p>
+      <p>The work extends into the commercial phase when it's useful. Developing a position and benchmark, preparing the team for vendor conversations, reviewing redlines, sitting in on key calls, and helping manage the information discipline that determines whether leverage holds or leaks out. Every engagement looks different depending on when I'm brought in and what's already been decided.</p>
+      <p class="for">For: teams approaching a major purchase or renewal where the commercial strategy matters and senior judgment on the deal shape is worth more than another process manager.</p>
+    </div>
+
+    <div class="closer">
+      <h2>Other capabilities</h2>
+      <p>The work above represents what Acuity leads with, but the practice extends into the adjacent areas that twenty years on the buyer's side naturally covers. Software asset management and audit defense, post-merger license consolidation, master agreement renegotiation, and sourcing team training and enablement are all engagements I take on when the situation calls for them. These are typically brought in through existing relationships rather than sourced through the website, but if any of them describe what you're dealing with, reach out.</p>
+    </div>
+
+    <div class="closer">
+      <h2>How engagements are structured</h2>
+      <p>Most work is project-based, scoped and priced against a specific outcome. Retainer arrangements are possible for clients with ongoing needs. Day-rate engagements suit situations where the scope is uncertain and the client wants flexibility. Every engagement starts the same way: a short call to understand what you're dealing with, followed by a proposal that names the work, the timeline, and the terms. No discovery theater, no qualification gauntlet, no long sales process. If the problem is real and I'm the right person to help with it, we find out fast.</p>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Acuity Sourcing</footer>
+
+</body>
+</html>
