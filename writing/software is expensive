@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your software isn't expensive because the code is heavy · Acuity Sourcing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7f6; --bg-warm: #eeeeec;
+    --ink: #131313; --ink-soft: #2a2a2a; --ink-muted: #6a6a6a;
+    --accent: #5e8b3f; --accent-soft: #7fa85f;
+    --rule: #d8d8d5; --paper: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 19px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg); border-bottom: 1px solid var(--rule);
+    padding: 20px 32px;
+  }
+  .nav-inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .nav-logo { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+  .nav-logo em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .nav-links { display: flex; gap: 36px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; }
+  .nav-links a:hover, .nav-links a.current { color: var(--accent); }
+
+  .article-header {
+    padding: 100px 32px 80px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .article-header-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400; letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 40px;
+  }
+  h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .byline {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+  .byline strong {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+
+  .article {
+    padding: 80px 32px 120px;
+  }
+  .article-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .article p {
+    font-size: 19px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+  }
+  .article p:first-child::first-letter {
+    font-family: 'Fraunces', serif;
+    font-size: 68px;
+    font-weight: 500;
+    float: left;
+    line-height: 0.85;
+    margin: 6px 12px 0 0;
+    color: var(--accent);
+  }
+  .article h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    margin: 64px 0 28px;
+    color: var(--ink);
+  }
+  .article h2::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 20px;
+  }
+  .article em { font-style: italic; }
+
+  footer {
+    padding: 40px 32px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 720px) {
+    .article-header { padding: 60px 24px 60px; }
+    .article { padding: 60px 24px 80px; }
+    .nav-links { gap: 20px; }
+    .article p:first-child::first-letter { font-size: 48px; margin: 4px 8px 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Acuity <em>Sourcing</em></a>
+    <div class="nav-links">
+      <a href="/how-i-work">What I Do</a>
+      <a href="/work">Work</a>
+      <a href="/writing/software-expensive" class="current">Writing</a>
+      <a href="/about">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="article-header-inner">
+    <div class="meta">Essay</div>
+    <h1>Your software isn't expensive because the code is heavy. <em>It's expensive because you don't know how to buy it.</em></h1>
+    <div class="byline">
+      <strong>Jake Vigneri</strong><br>
+      April 2026 · 8 minute read
+    </div>
+  </div>
+</section>
+
+<section class="article">
+  <div class="article-inner">
+    <p>With most commodities, the price makes sense. You can look up the spot price of steel, the cost of a barrel of oil, the wholesale price of corn. The materials are public, the margins are known, and the number on the quote bears some relationship to the cost of the thing. When you buy a car or a house, you can compare it to the one next door.</p>
+
+    <p>Software can't be compared that way. One vendor sells by the seat. Another sells by the token. A third charges for compute consumption, or named users, or modules, or some combination of all of it. The unit of measure is different from product to product, which means there is no clean way to line two quotes up next to each other and know which is the better deal.</p>
+
+    <p>It gets worse from there. The cost to produce the first copy of a piece of software is enormous. The cost to produce the second copy is nearly zero. Most of what you're paying for isn't the code, it's human labor, and the cost of human labor varies enormously depending on who's doing it and where. The same feature built by an onshore engineering team and the same feature built by an offshore team are priced very differently, and the buyer rarely has visibility into which one is on the other end of the invoice. The vendor's margins are some of the highest in any industry, typically between seventy and ninety percent, and most of what's in the price is the cost of servicing the account: the flights, the dinners, the sales engineer hours, the custom demos, the executive sponsorship. That cost is real. It's also bigger than most buyers realize.</p>
+
+    <p>This is not a claim that software is overpriced. Whether a given tool is worth its price depends on what your organization needs it to do, and that calculation is yours to make. The claim is narrower: when buyers treat software like a commodity, comparing quotes and negotiating on price, they miss the fact that what they're buying is not a product. It's a service. And the cost of that service is largely determined by the buyer's own behavior.</p>
+
+    <p>Twenty years of negotiating enterprise software on the buyer's side has shown me the same pattern at every company I've worked with. The deal goes badly in a predictable way, and it almost always goes badly for the same three reasons. I've started to think of them as taxes, because most of what drives them is invisible to the buyer and shows up in the final price anyway.</p>
+
+    <h2>The Requirements Tax</h2>
+
+    <p>Most enterprise software purchases begin with a business user who has been tasked with a problem they haven't yet defined. Somebody on the leadership team has decided the company needs a new tool, or a better process, or a replacement for something that isn't working. The business user is sent off to figure out what to buy. They watch a demo, like what they see, and start the buying process. Somewhere between the first demo and the signed contract, somebody has to translate vague intent into something the vendor can scope and price. If the buying organization doesn't do that work, the vendor does it for them.</p>
+
+    <p>This is the Requirements Tax. Every hour the vendor spends figuring out what you actually need is an hour they're going to recoup, either in the license cost, in the implementation fees, or in the first renewal. Discovery isn't free. It's deferred. The buyer who arrives with a vague sense of what the product should do is paying the vendor to define it for them, and that work will show up in the invoice one way or another.</p>
+
+    <p>The alternative is not complicated. It's also not easy. It requires the buyer to do the work of defining the problem before they engage the vendor. What does the team need the software to do? What does success look like? What are the must-haves, what are the nice-to-haves, what is out of scope? This is the work most buyers skip because they don't have the time, the training, or the patience. It's also the work that determines everything downstream.</p>
+
+    <h2>The Attention Tax</h2>
+
+    <p>The second tax is quieter but expensive. Once a buyer has engaged a vendor, the vendor assigns people to the deal. A sales and a sales engineer. Sometimes a solutions architect, a proposal writer, a technical account manager. These people are not free. They are a meaningful portion of the vendor's cost of sale, and the more of their time a deal consumes, the more of their time has to be priced in.</p>
+
+    <p>A buying team that wants another demo, a custom proof of concept, a walkthrough with the security team, a follow-up call to answer questions the first call didn't cover, is generating cost. None of that cost is on the quote as a line item. All of it is baked into the number. When a vendor's pricing feels padded, it is often because the deal has taken three times as long as the vendor budgeted for it, and the vendor is recovering the overrun from the buyer who caused it.</p>
+
+    <p>The implication is not that buyers should avoid engaging the vendor. It's that every engagement has a cost, and that cost gets paid by the buyer regardless of whether anyone tracks it. A disciplined buyer knows what they need before they ask for the demo, and knows what they're trying to learn before they take the call.</p>
+
+    <h2>The Leverage Tax</h2>
+
+    <p>The third tax is the one most experienced buyers recognize and still pay. Information moves around in a software deal, in both directions, and every piece of information the vendor collects is a piece the vendor can price against.</p>
+
+    <p>The clearest example is budget. A vendor who knows the buyer has a hundred thousand dollars set aside will structure a quote that comes in just under the number. A vendor who knows the buyer's fiscal year ends in September will structure a close date around it. A vendor who knows the buyer's current system is failing will price the replacement at the cost of the failure rather than the cost of the alternative. None of these are dishonest tactics. They are rational responses to the information the buyer shared.</p>
+
+    <p>Most disclosure isn't strategic. It happens because someone on the buying side is trying to be helpful, or is trying to accelerate the process, or doesn't understand what the vendor will do with the information once they have it. The leverage is gone before the negotiation starts, because the negotiation is over by the time price is on the table.</p>
+
+    <p>The discipline is not silence. A software deal involves real collaboration, both internally and with the vendor, and nothing gets built without information moving around. The discipline is that the buying organization agrees on what information is shared, when, and by whom. When sales, IT, legal, and finance are all sharing their own pieces with the vendor on their own timeline, the vendor assembles a picture the buying organization hasn't even assembled for itself. That's how leverage leaks out. Not through strategic concessions, but through uncoordinated disclosure.</p>
+
+    <h2>What the three taxes have in common</h2>
+
+    <p>The Requirements Tax, the Attention Tax, and the Leverage Tax are all versions of the same thing. They are the cost of the buyer not having done the internal work before engaging the vendor. They show up in the price because the vendor, faced with a buyer who doesn't know what they want, hasn't budgeted properly, and is disclosing freely, prices accordingly.</p>
+
+    <p>Software has no knowable cost basis. Benchmarks only tell you so much, and they're only available for some products. The right price for your organization is the one your requirements justify, your alternatives anchor, and your budget supports. You can only know that price if you've done the work to define those things first.</p>
+
+    <p>The work is not glamorous and it is not easy to do well. But it is the work that determines whether you end up with the software you need at a price that reflects it, or with something else.</p>
+  </div>
+</section>
+
+<footer>© 2026 Acuity Sourcing</footer>
+
+</body>
+</html>
