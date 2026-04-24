@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · Acuity Sourcing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7f6;
+    --bg-warm: #eeeeec;
+    --ink: #131313;
+    --ink-soft: #2a2a2a;
+    --ink-muted: #6a6a6a;
+    --accent: #5e8b3f;
+    --accent-soft: #7fa85f;
+    --rule: #d8d8d5;
+    --paper: #ffffff;
+    --max: 780px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    font-feature-settings: "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 20px 32px;
+  }
+  .nav-inner {
+    max-width: 1120px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 21px; font-weight: 500;
+    letter-spacing: -0.01em; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .nav-links {
+    display: flex; gap: 36px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+  }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.current { color: var(--accent); }
+
+  .page {
+    padding: 100px 32px 120px;
+  }
+  .page-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .page-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 56px;
+  }
+  h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .photo-block {
+    margin: 0 0 64px;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    padding: 24px 28px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+  .photo-placeholder {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: var(--bg-warm);
+    border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    color: var(--ink-muted);
+    flex-shrink: 0;
+  }
+  .photo-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; color: var(--ink-muted);
+    line-height: 1.5;
+  }
+  .photo-meta strong {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .body p {
+    font-size: 19px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .body p.bridge {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--ink);
+    padding-left: 20px;
+    border-left: 2px solid var(--accent);
+    margin: 40px 0;
+  }
+  .body p.lead {
+    font-size: 21px;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+  .close-section {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--rule);
+  }
+  .close-section p {
+    margin-bottom: 20px;
+  }
+  .close-section p.thesis {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-top: 32px;
+  }
+
+  footer {
+    padding: 40px 32px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 720px) {
+    .page { padding: 60px 24px 80px; }
+    .nav-links { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Acuity <em>Sourcing</em></a>
+    <div class="nav-links">
+      <a href="/how-i-work">What I Do</a>
+      <a href="/work">Work</a>
+      <a href="/writing/software-expensive">Writing</a>
+      <a href="/about" class="current">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page">
+  <div class="page-inner">
+    <div class="page-label">About</div>
+    <h1>Twenty years on the <em>buyer's side.</em></h1>
+
+    <div class="photo-block">
+      <div class="photo-placeholder">JV</div>
+      <div class="photo-meta">
+        <strong>Jake Vigneri</strong>
+        Founder, Acuity Sourcing
+      </div>
+    </div>
+
+    <div class="body">
+      <p>I grew up in Pennsylvania Dutch country, which in practice meant I grew up around cars. Volkswagens specifically. My first was a 1973 VW Bus, and my weekends as a teenager were spent at car shows, selling merchandise, and planning a future in the automotive industry.</p>
+
+      <p>The career I actually ended up in started at a shop called Integrity Auto. It worked on Volkswagens, but the business came from the Bentleys and Ferraris that other shops had given up on. I started by sweeping floors, getting lunch, and emptying the garbage. Eventually I graduated to oil changes, then to mounting and balancing tires, then to machining rotors and drums. The two mechanics who taught me, Mark and Chris, ran a shop where the standards were high and the feedback was direct. What I learned at Integrity Auto was not really how to fix cars. It was that once you learn how to fix one hard thing, nothing else seems that hard anymore.</p>
+
+      <p class="bridge">I've carried that with me through twenty years of procurement.</p>
+
+      <p>I did not plan to end up in procurement. Nobody does. I took a job at Macmillan Publishers after college because it was available and it paid, and I reported to the CIO responsible for all things IT and money. The company had a chronic IT budget overrun problem that nobody could explain, and the CIO gave me the unglamorous job of figuring out why. I designed and built a procure-to-pay system from scratch. Three simple controls linked together: manager approval with a valid GL code, a three-way match between helpdesk ticket, PO, and invoice, and a digital document workflow so nothing got lost between receipt and payment. The system went live in weeks and delivered $1M in first-year savings. It also taught me something I did not expect to learn at my first job: the problem was never the vendor. The problem was always internal. The vendor was just a rational actor responding to whatever mess we'd made on our side.</p>
+
+      <p>From Macmillan I went to Moody's, which was going through one of the most important transitions in its history. The firm was pivoting away from its traditional ratings business and toward Moody's Analytics, the software and data business that still drives most of its growth. I arrived right when a significant software audit had surfaced the firm's lack of entitlement discipline, and I led the RFP to select and implement the ITAM platform that would govern over $500M in software assets. While that platform was being stood up, we were audited a second time, this time by Adobe, and I got to use the brand-new system live, under pressure, to defend the position and negotiate the settlement. The outcome of that audit was one of Adobe's first enterprise SaaS contracts, negotiated before most buyers had any idea what SaaS was going to become. Moody's was where I learned what commercial software licensing actually looks like underneath the marketing, and how much leverage a buyer quietly surrenders by not knowing the terrain.</p>
+
+      <p>The Federal Reserve Bank of New York was next. The Fed is one of the most disciplined procurement environments in the world, operating under a 50+ page acquisition policy written by policy makers for policy makers. The strict competitive bidding requirements forced me to become rigorous about requirements, scoring, and process integrity in a way no other environment would have demanded. I also ran a sourcing policy training program that I designed from scratch, running it twice a year for groups of about thirty employees. The program ran for as long as I was there. The Fed is where I learned that a good process is not about control. It is about translating what policy makers wrote into something that the people actually doing the work can understand and follow.</p>
+
+      <p>BlackRock recruited me based on the Fed work. I negotiated SaaS and professional services agreements with a focus on trading platforms, integrating companies acquired through M&amp;A, and renegotiating agreements to align with BlackRock's commercial standards. I managed $85M in annual spend, delivered $30M in combined negotiated savings and demand management, and redesigned the vendor onboarding workflow for trading platforms in a way that cut onboarding time by more than 60%. BlackRock is where I learned how information discipline actually works in practice. Every conversation with a vendor happened under strict rules about what could be shared and when, because the firm's earnings windows and press cycles made careless disclosure expensive. That experience clarified something I had always half-understood: the biggest lever in a software deal is rarely what you pay, it is what you share and when.</p>
+
+      <p>In 2021 I was pulled into one of the largest corporate separations in American industrial history. GE Company was splitting into three publicly traded companies, and the engineering software portfolio, sixteen separate business units with their own systems, their own cultures, and $750M in engineering applications, had to be separated, transferred, or renegotiated before the split could close. I ended up at GE Vernova, the new energy business, where I led that work and have stayed to help stand up the sourcing function for a 130-year heritage operating for the first time as a standalone public company.</p>
+
+      <div class="close-section">
+        <p>Somewhere along the way I realized that every company I had worked at had the same problem. The deals were different, the industries were different, the vendors were different, but the failure mode was always the same. A business user gets tasked with a problem they haven't fully defined. They start talking to vendors. Requirements are vague, stakeholders aren't aligned, information leaks in a dozen directions, and by the time procurement gets involved the deal is already half-built on the vendor's terms. Nobody is at fault. The system just works this way. And nobody is doing the work that would prevent it, because that work has to happen inside the buying organization, before any vendor shows up, and most companies don't have anyone equipped to do it.</p>
+
+        <p>Acuity is the consulting practice I built to help with that work. It's a requirements-first shop focused on the part of a software deal that almost nobody gets right: the business case, the requirements, the executive alignment, and the stakeholder discipline that determines whether a deal goes well or poorly long before the first price is on the table.</p>
+
+        <p>Pario is the software I built for the companies that can't afford to hire a consultant for every deal. It walks a business user through the scoping, requirements, and business-case work that would otherwise take weeks, and produces a defensible document they can use to align their own organization before a vendor is ever engaged.</p>
+
+        <p class="thesis">Different delivery, same thesis. The work that decides a software deal happens before anyone calls a vendor, and it is the work that almost always gets skipped.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Acuity Sourcing</footer>
+
+</body>
+</html>
