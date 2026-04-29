@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,7 @@
   html { scroll-behavior: smooth; }
   body {
     background: var(--bg); color: var(--ink);
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Inter', -apple-system, sans-serif;
     font-size: 18px; line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
@@ -40,12 +39,12 @@
   .page-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
   h1 {
     font-family: 'Fraunces', serif;
-    font-size: clamp(44px, 5.5vw, 64px);
-    font-weight: 400; letter-spacing: -0.025em;
+    font-size: clamp(34px, 4.5vw, 48px);
+    font-weight: 600; letter-spacing: -0.025em;
     line-height: 1.1;
     margin-bottom: 48px;
   }
-  h1 em { font-style: italic; color: var(--accent); }
+  h1 em { color: var(--accent); font-style: normal; font-weight: inherit; }
   .intro {
     font-size: 20px;
     line-height: 1.7;
@@ -54,13 +53,12 @@
     padding-bottom: 48px;
   }
   .transition {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 22px;
+    font-size: 17px;
     color: var(--ink);
     margin: 48px 0 64px;
     padding-left: 20px;
     border-left: 2px solid var(--accent);
+    font-weight: 500;
   }
 
   .service {
@@ -69,12 +67,11 @@
   }
   .service:last-of-type { border-bottom: 1px solid var(--rule); }
   .service h2 {
-    font-family: 'Fraunces', serif;
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 600;
     letter-spacing: -0.015em;
-    line-height: 1.2;
-    margin-bottom: 24px;
+    line-height: 1.3;
+    margin-bottom: 20px;
     color: var(--ink);
   }
   .service p {
@@ -84,24 +81,22 @@
     margin-bottom: 20px;
   }
   .service .for {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--ink-muted);
     margin-top: 28px;
     padding: 20px 0 0;
     border-top: 1px dashed var(--rule);
+    font-weight: 500;
   }
 
   .closer {
     margin-top: 64px;
   }
   .closer h2 {
-    font-family: 'Fraunces', serif;
-    font-size: 26px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
     letter-spacing: -0.01em;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .closer p {
     font-size: 17px;

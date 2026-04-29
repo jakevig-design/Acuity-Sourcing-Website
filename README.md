@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/27035253/README.md)
 # Acuity Sourcing — Website
 
 Static HTML site for acuitysourcing.com, deployed on Vercel.

@@ -1,8 +1,0 @@
-cd ~/Downloads/acuity_site #
-
-git init
-git add index.html vercel.json 404.html
-git commit -m "add site files"
-git branch -M main
-git remote add origin https://github.com/jakevig-design/acuity-site.git
-git push -u origin main --force
