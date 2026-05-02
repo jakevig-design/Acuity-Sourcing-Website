@@ -16,6 +16,7 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; max-width: 100%; }
   body {
     background: var(--bg); color: var(--ink);
     font-family: 'Inter', -apple-system, sans-serif;
@@ -113,6 +114,25 @@
     .page { padding: 60px 24px 80px; }
     .nav-links { gap: 20px; }
   }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 20px 24px; gap: 16px; }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); }
+  }
+  @media (min-width: 701px) {
+    .nav-toggle { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    section { padding: 60px 20px; }
+    h1 { font-size: clamp(28px, 7vw, 36px); }
+    h2 { font-size: 26px; }
+    h3 { font-size: 19px; }
+    .case { padding: 32px 0; }
+  }
 </style>
 </head>
 <body>
@@ -120,6 +140,11 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">Acuity <em>Sourcing</em></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <div class="nav-links">
       <a href="/how-i-work">What I Do</a>
       <a href="/work" class="current">Work</a>
