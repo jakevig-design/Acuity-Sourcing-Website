@@ -93,12 +93,8 @@
   .photo-placeholder {
     width: 88px; height: 88px;
     border-radius: 50%;
-    background: var(--bg-warm);
     border: 1px solid var(--rule);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Fraunces', serif;
-    font-size: 32px;
-    color: var(--ink-muted);
+    object-fit: cover;
     flex-shrink: 0;
   }
   .photo-meta {
@@ -212,7 +208,7 @@
     <h1>Twenty years on the <em>buyer's side.</em></h1>
 
     <div class="photo-block">
-      <div class="photo-placeholder">JV</div>
+      <img class="photo-placeholder" src="jake-vigneri.png" alt="Jake Vigneri">
       <div class="photo-meta">
         <strong>Jake Vigneri</strong>
         Founder, Acuity Sourcing
