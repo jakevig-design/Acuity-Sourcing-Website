@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Jake - Acuity Sourcing</title>
+    <title>Acuity Sourcing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -104,35 +104,476 @@
             padding: 0 3rem;
         }
 
-        /* About Section */
-        .about {
-            margin: 4rem auto 6rem;
+        .wide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
         }
 
-        .about h1 {
+        /* Hero */
+        .hero {
+            margin: 5rem auto 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
             font-family: var(--serif);
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--slate);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Services */
+        .services {
+            margin: 8rem auto;
+        }
+
+        .services h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--navy);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--paper);
+            border: 1px solid var(--border-light);
+            padding: 2.5rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .service-card:hover {
+            border-color: var(--teal);
+            box-shadow: 0 8px 24px rgba(26, 149, 153, 0.12);
+        }
+
+        .service-card h3 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+            color: var(--navy);
+        }
+
+        .service-trigger {
+            font-size: 0.8rem;
+            color: var(--slate);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* How I Work */
+        .methodology {
+            margin: 8rem auto;
+        }
+
+        .methodology h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--navy);
+        }
+
+        .phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .phase {
+            background: var(--mist);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--teal);
+        }
+
+        .phase h3 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .phase h4 {
+            font-family: var(--serif);
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--slate);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .phase p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+        }
+
+        .methodology-note {
+            text-align: center;
+            color: var(--slate);
+            font-size: 0.9rem;
+            font-style: italic;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Writing */
+        .writing-section {
+            margin: 8rem auto;
+        }
+
+        .writing-section h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .writing-section > p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+
+        .article-card {
+            background: var(--paper);
+            border: 1px solid var(--border-light);
+            padding: 2.5rem;
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .article-card:hover {
+            border-color: var(--teal);
+            box-shadow: 0 8px 24px rgba(26, 149, 153, 0.12);
+        }
+
+        .article-card h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--slate);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-description {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-link {
+            display: inline-block;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .article-link::after {
+            content: ' →';
+            transition: transform 0.2s;
+        }
+
+        .article-card:hover .article-link {
+            transform: translateX(4px);
+        }
+
+        /* What I Do */
+        .what-i-do {
+            margin: 8rem auto;
+        }
+
+        .what-i-do h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .what-i-do > p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .workstreams {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .workstream {
+            border: 1px solid var(--border-light);
+            padding: 2.5rem;
+            border-radius: 4px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .workstream::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .workstream:hover {
+            border-color: var(--teal);
+            box-shadow: 0 8px 24px rgba(26, 149, 153, 0.12);
+        }
+
+        .workstream h3 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+            color: var(--navy);
+        }
+
+        .workstream-subtitle {
+            font-size: 0.8rem;
+            color: var(--slate);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .workstream p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .workstream p:last-of-type {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .workstream a {
+            display: inline-block;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .workstream a::after {
+            content: ' →';
+            transition: transform 0.2s;
+        }
+
+        .workstream:hover a {
+            transform: translateX(4px);
+        }
+
+        /* Pario */
+        .pario-section {
+            margin: 8rem auto;
+            padding: 4rem 3rem;
+            background: var(--mist);
+            border-left: 4px solid var(--teal);
+        }
+
+        .pario-section h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
             font-weight: 600;
             margin-bottom: 2rem;
             color: var(--navy);
         }
 
-        .about-content {
+        .pario-section p {
             font-size: 1rem;
             color: var(--slate);
-            line-height: 1.85;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
 
-        .about-content p {
-            margin-bottom: 1.75rem;
+        .pario-section p:last-of-type {
+            margin-bottom: 1.5rem;
         }
 
-        .about-content p:last-child {
-            margin-bottom: 0;
+        .pario-section a {
+            display: inline-block;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
         }
 
-        .about-content strong {
+        .pario-section a::after {
+            content: ' →';
+            transition: transform 0.2s;
+        }
+
+        .pario-section a:hover {
+            transform: translateX(4px);
+        }
+
+        /* Why Acuity */
+        .why-acuity {
+            margin: 8rem auto;
+            padding: 4rem 3rem;
+            background: var(--mist);
+            border-left: 4px solid var(--teal);
+        }
+
+        .why-acuity h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
             color: var(--navy);
+        }
+
+        .why-acuity p {
+            font-size: 1rem;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .why-acuity p:last-of-type {
+            margin-bottom: 1.5rem;
+        }
+
+        .why-acuity a {
+            display: inline-block;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .why-acuity a:hover {
+            transform: translateX(4px);
+        }
+
+        /* CTA */
+        .cta {
+            margin: 8rem auto;
+            padding: 4.5rem 3rem;
+            background: var(--gradient);
+            color: var(--paper);
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .cta h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--paper);
+            color: var(--navy);
+            padding: 0.875rem 2.25rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            font-family: var(--sans);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
@@ -206,26 +647,80 @@
                 white-space: normal;
             }
 
-            .container {
+            .container,
+            .wide-container {
                 padding: 0 1.5rem;
             }
 
-            .about {
-                margin: 2rem auto 4rem;
+            .hero {
+                margin: 3rem auto 4rem;
             }
 
-            .about h1 {
-                font-size: 1.75rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .about-content {
+            .hero p {
                 font-size: 0.95rem;
-                line-height: 1.75;
             }
 
-            .about-content p {
-                margin-bottom: 1.5rem;
+            .services,
+            .methodology,
+            .why-acuity {
+                margin: 5rem auto;
+            }
+
+            .services h2,
+            .methodology h2,
+            .what-i-do h2,
+            .why-acuity h2 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .services-grid,
+            .phases,
+            .workstreams {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .phase {
+                padding: 2rem;
+            }
+
+            .writing-section {
+                margin: 5rem auto;
+            }
+
+            .writing-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .article-card {
+                padding: 2rem;
+            }
+
+            .pario-section {
+                margin: 5rem auto;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .pario-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .why-acuity {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .cta {
+                margin: 5rem auto;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .cta h2 {
+                font-size: 1.5rem;
             }
 
             footer {
@@ -241,8 +736,8 @@
             <a href="/" class="logo">Acuity</a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
             <nav class="nav" id="navMenu">
-                <a href="/#services">Services</a>
-                <a href="/#methodology">How I Work</a>
+                <a href="#services">Services</a>
+                <a href="#methodology">How I Work</a>
                 <a href="acuity-portfolio.html">Portfolio</a>
                 <a href="writing/">Writing</a>
                 <a href="about.html">About</a>
@@ -251,34 +746,120 @@
         </div>
     </header>
 
-    <!-- About Content -->
-    <section class="about container">
-        <h1>About Jake</h1>
-        <div class="about-content">
-            <p>I grew up in Pennsylvania Dutch country, which in practice meant I grew up around cars. Volkswagens specifically. My first was a 1973 VW Bus, and my weekends as a teenager were spent at car shows, selling merchandise, and planning a future in the automotive industry.</p>
+    <!-- Hero -->
+    <section class="hero container">
+        <h1>A software deal is won the same way any hard thing is won. In the work you put in before the other side shows up.</h1>
+        <p>While you're browsing, the vendor is already working. They're mapping your organizational structure, profiling your budget, and figuring out who they need to get it to close. Meanwhile the business case is vague, the requirements are soft, and nobody internally has agreed on what success looks like. By the time procurement gets involved, you've lost on both sides of the table.</p>
+    </section>
 
-            <p>The career I actually ended up in started at a shop called Integrity Auto. It worked on Volkswagens, but the business came from the Bentleys and Ferraris that other shops had given up on. I started by sweeping floors, getting lunch, and emptying the garbage. Eventually I graduated to oil changes, then to mounting and balancing tires, then to machining rotors and drums. The two mechanics who taught me, Mark and Chris, ran a shop where the standards were high and the feedback was direct. What I learned at Integrity Auto was not really how to fix cars. It was that once you learn how to fix one hard thing, nothing else seems that hard anymore.</p>
+    <!-- What I Do -->
+    <section class="what-i-do wide-container">
+        <h2>What I Do</h2>
+        <p>Same thesis. Two ways to deliver it. Hands-on advisory and the software version of the same methodology.</p>
+        <div class="workstreams">
+            <div class="workstream">
+                <h3>Acuity Consulting</h3>
+                <div class="workstream-subtitle">Hands-on advisory for the work before the vendor shows up</div>
+                <p>Business cases, requirements development, competitive bid design, executive alignment, and negotiation support for the deals where getting it right actually matters.</p>
+                <p>For: teams running a specific high-stakes purchase, renewal, or competitive bid, who need a senior practitioner involved from day one.</p>
+                <a href="#methodology">How I work →</a>
+            </div>
 
-            <p><strong>I've carried that with me through twenty years of procurement.</strong></p>
-
-            <p>I did not plan to end up in procurement. Nobody does. I took a job at Macmillan Publishers after college because it was available and it paid, and I reported to the CIO responsible for all things IT and money. The company had a chronic IT budget overrun problem that nobody could explain, and the CIO gave me the unglamorous job of figuring out why. I designed and built a procure-to-pay system from scratch. Three simple controls linked together: manager approval with a valid GL code, a three-way match between helpdesk ticket, PO, and invoice, and a digital document workflow so nothing got lost between receipt and payment. The system went live in weeks and delivered $1M in first-year savings. It also taught me something I did not expect to learn at my first job: the problem was never the vendor. The problem was always internal. The vendor was just a rational actor responding to whatever mess we'd made on our side.</p>
-
-            <p>From Macmillan I went to Moody's, which was going through one of the most important transitions in its history. The firm was pivoting away from its traditional ratings business and toward Moody's Analytics, the software and data business that still drives most of its growth. I arrived right when a significant software audit had surfaced the firm's lack of entitlement discipline, and I led the RFP to select and implement the ITAM platform that would govern over $500M in software assets. While that platform was being stood up, we were audited a second time, this time by Adobe, and I got to use the brand-new system live, under pressure, to defend the position and negotiate the settlement. The outcome of that audit was one of Adobe's first enterprise SaaS contracts, negotiated before most buyers had any idea what SaaS was going to become. Moody's was where I learned what commercial software licensing actually looks like underneath the marketing, and how much leverage a buyer quietly surrenders by not knowing the terrain.</p>
-
-            <p>The Federal Reserve Bank of New York was next. The Fed is one of the most disciplined procurement environments in the world, operating under a 50+ page acquisition policy written by policy makers for policy makers. The strict competitive bidding requirements forced me to become rigorous about requirements, scoring, and process integrity in a way no other environment would have demanded. I also ran a sourcing policy training program that I designed from scratch, running it twice a year for groups of about thirty employees. The program ran for as long as I was there. The Fed is where I learned that a good process is not about control. It is about translating what policy makers wrote into something that the people actually doing the work can understand and follow.</p>
-
-            <p>BlackRock recruited me based on the Fed work. I negotiated SaaS and professional services agreements with a focus on trading platforms, integrating companies acquired through M&A, and renegotiating agreements to align with BlackRock's commercial standards. I managed $85M in annual spend, delivered $30M in combined negotiated savings and demand management, and redesigned the vendor onboarding workflow for trading platforms in a way that cut onboarding time by more than 60%. BlackRock is where I learned how information discipline actually works in practice. Every conversation with a vendor happened under strict rules about what could be shared and when, because the firm's earnings windows and press cycles made careless disclosure expensive. That experience clarified something I had always half-understood: the biggest lever in a software deal is rarely what you pay, it is what you share and when.</p>
-
-            <p>In 2021 I was pulled into one of the largest corporate separations in American industrial history. GE Company was splitting into three publicly traded companies, and the engineering software portfolio, sixteen separate business units with their own systems, their own cultures, and $750M in engineering applications, had to be separated, transferred, or renegotiated before the split could close. I ended up at GE Vernova, the new energy business, where I led that work and have stayed to help stand up the sourcing function for a 130-year heritage operating for the first time as a standalone public company.</p>
-
-            <p>Somewhere along the way I realized that every company I had worked at had the same problem. The deals were different, the industries were different, the vendors were different, but the failure mode was always the same. A business user gets tasked with a problem they haven't fully defined. They start talking to vendors. Requirements are vague, stakeholders aren't aligned, information leaks in a dozen directions, and by the time procurement gets involved the deal is already half-built on the vendor's terms. Nobody is at fault. The system just works this way. And nobody is doing the work that would prevent it, because that work has to happen inside the buying organization, before any vendor shows up, and most companies don't have anyone equipped to do it.</p>
-
-            <p>Acuity is the consulting practice I built to help with that work. It's a requirements-first shop focused on the part of a software deal that almost nobody gets right: the business case, the requirements, the executive alignment, and the stakeholder discipline that determines whether a deal goes well or poorly long before the first price is on the table.</p>
-
-            <p>Pario is the software I built for the companies that can't afford to hire a consultant for every deal. It walks a business user through the scoping, requirements, and business-case work that would otherwise take weeks, and produces a defensible document they can use to align their own organization before a vendor is ever engaged.</p>
-
-            <p>Different delivery, same thesis. The work that decides a software deal happens before anyone calls a vendor, and it is the work that almost always gets skipped.</p>
+            <div class="workstream">
+                <h3>Pario Software</h3>
+                <div class="workstream-subtitle">The productized version of the same methodology</div>
+                <p>Structured scoping, requirements, vendor research, and a defensible business case, ready to walk into your boss's office with. Built for teams that need the work done but don't have access to someone like me.</p>
+                <p>For: business users evaluating a software purchase who want to get it right before anyone writes a check.</p>
+                <a href="https://planwithpario.com/">Try Pario →</a>
+            </div>
         </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services wide-container" id="services">
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Advisory</h3>
+                <div class="service-trigger">When you're buying or transitioning platforms</div>
+                <p>Your organization is making a major software decision. A competitive bid, a master agreement renegotiation, a post-acquisition platform consolidation. The wrong move costs millions. We bring deal strategy and negotiation support from inside the room.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>License Intelligence</h3>
+                <div class="service-trigger">When you have compliance or audit exposure</div>
+                <p>You've discovered unknown license exposure, faced an audit notice, or inherited an unclear software estate after an acquisition. You need forensic work on what you actually own and where the risk is.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Enablement</h3>
+                <div class="service-trigger">When you're building internal capability</div>
+                <p>You want the discipline and methodology inside your team rather than purchased per-engagement. Training, coaching, and curriculum work that installs a repeatable sourcing operating system.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How I Work -->
+    <section class="methodology wide-container" id="methodology">
+        <h2>How I Work</h2>
+        <div class="phases">
+            <div class="phase">
+                <h3>Phase 1</h3>
+                <h4>Define what good looks like</h4>
+                <p>Establish what your organization actually needs from a platform, before any vendor is in the room. Requirements drive everything that follows.</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 2</h3>
+                <h4>Make a defensible recommendation</h4>
+                <p>Compare alternatives against your requirements, model the all-in cost of each path, and identify the decision that holds up under scrutiny.</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 3</h3>
+                <h4>Make the win sustainable</h4>
+                <p>Build the governance and review cadence that keeps the platform decision strong through every renewal cycle and market change.</p>
+            </div>
+        </div>
+        <p class="methodology-note">The methodology is the same across all three services. The scope and depth changes based on your situation.</p>
+    </section>
+
+    <!-- Writing -->
+    <section class="writing-section wide-container">
+        <h2>Writing</h2>
+        <p>Essays on software procurement, vendor strategy, and the structural forces that make enterprise deals work.</p>
+        
+        <article class="article-card">
+            <h3>Software Pricing: The Three Taxes You're Already Paying</h3>
+            <p class="article-meta">On vendor pricing strategy and where software costs actually come from</p>
+            <p class="article-description">Enterprise software pricing is not transparent. Vendors build layered pricing structures that exploit information asymmetry: the Requirements Tax (you don't know what you need), the Attention Tax (you can't evaluate everything), and the Leverage Tax (you're always negotiating from weakness). This essay breaks down how each tax works and where the real negotiating leverage actually lives.</p>
+            <a href="writing/" class="article-link">Read more</a>
+        </article>
+    </section>
+
+    <!-- Why Acuity Exists -->
+    <section class="why-acuity container">
+        <h2>Why Acuity Exists</h2>
+        <p>Twenty years ago I took a job in procurement by accident and ended up spending my career negotiating enterprise software, at GE Vernova, GE Company, BlackRock, the Federal Reserve Bank of New York, Moody's, and Macmillan. Trading platforms, OEM licensing, audit defense, post-M&A consolidation, the works.</p>
+        <p>Business users found a tool they wanted, started talking to the vendor before anyone had written a real business case, and by the time procurement showed up the deal was already half-built, on the vendor's terms. The requirements were soft. The stakeholders weren't aligned. The budget was either a guess or already disclosed. And the vendor had been running the play since the first demo.</p>
+        <p>I built Acuity because that pattern is fixable, and almost nobody is fixing it. The work that matters happens before the vendor ever sees a procurement person, and most organizations don't have anyone doing that work. Acuity is a boutique shop focused on exactly that: requirements, business cases, and the internal alignment that makes everything downstream actually work.</p>
+        <a href="about.html">Read the full story →</a>
+    </section>
+
+    <!-- Pario -->
+    <section class="pario-section container">
+        <h2>Pario</h2>
+        <p><strong>The software I built because my consulting can't scale.</strong></p>
+        <p>After twenty years of watching the same failure mode show up at every company, I realized the real problem wasn't that buyers were making bad deals. It was that most buyers never had access to someone who'd seen how these deals actually go. By the time a sourcing professional got involved, the damage was done. By the time a consultant like me got involved, the deal was usually too big and the client too sophisticated for the work to scale.</p>
+        <p>Pario is the software version of the first thing I do on any consulting engagement. You describe the problem. It walks you through a structured scoping conversation, helps you build requirements that hold up commercially, researches the vendor landscape, and generates a business case you can walk into your boss's office with. In thirty minutes you'll have done more rigorous work than most enterprise teams do in a month of internal meetings.</p>
+        <p>It's not a procurement tool. It's not an RFP platform. It's a preparation tool for the people who will actually have to live with the software they buy, and it's built on the same methodology I use when I'm doing the work myself.</p>
+        <p><strong>Currently in private beta.</strong></p>
+        <a href="https://planwithpario.com/">See Pario →</a>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta wide-container">
+        <h2>A major software decision is in front of you.</h2>
+        <p>Let's talk about what that looks like.</p>
+        <a href="mailto:jake@acuitysourcing.com?subject=Let%27s%20talk%20about%20software%20sourcing" class="cta-button">Get in touch</a>
     </section>
 
     <!-- Footer -->
