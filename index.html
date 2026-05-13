@@ -164,8 +164,6 @@
             text-align: center;
         }
 
-
-
         .principle h3 {
             font-family: var(--serif);
             font-size: 1.3rem;
@@ -493,25 +491,71 @@
         /* Responsive */
         @media (max-width: 768px) {
             header {
-                padding: 1.5rem 2rem;
+                padding: 1.25rem 1.5rem;
             }
 
             .header-content {
-                flex-direction: column;
-                gap: 1.5rem;
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+                flex-shrink: 0;
             }
 
             .nav {
-                gap: 1.5rem;
-                font-size: 0.85rem;
+                gap: 0.875rem;
+                font-size: 0.75rem;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                flex: 1;
+            }
+
+            .nav a {
+                white-space: nowrap;
+            }
+
+            .hero {
+                margin: 3rem auto 4rem;
+                padding: 0 1.5rem;
             }
 
             .hero h1 {
-                font-size: 2.25rem;
+                font-size: 1.875rem;
+                line-height: 1.2;
+                margin-bottom: 1.25rem;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .problem {
+                padding: 2.5rem 1.5rem;
+                margin: 4rem auto;
+            }
+
+            .problem h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .problem p {
+                font-size: 0.9rem;
+            }
+
+            .principles {
+                margin: 5rem auto;
+                padding: 0 1.5rem;
+            }
+
+            .principles h2 {
+                font-size: 1.5rem;
+                margin-bottom: 2.5rem;
             }
 
             .principles-grid,
@@ -521,15 +565,70 @@
                 gap: 1.5rem;
             }
 
-            .principles,
-            .services,
-            .methodology,
-            .problem {
+            .principle h3 {
+                font-size: 1.1rem;
+            }
+
+            .principle p {
+                font-size: 0.9rem;
+            }
+
+            .services {
+                margin: 5rem auto;
                 padding: 0 1.5rem;
             }
 
+            .services h2 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .methodology {
+                margin: 5rem auto;
+                padding: 0 1.5rem;
+            }
+
+            .methodology h2 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .phase h3 {
+                font-size: 1rem;
+            }
+
             .cta {
+                margin: 5rem auto;
                 padding: 2.5rem 1.5rem;
+            }
+
+            .cta h2 {
+                font-size: 1.5rem;
+            }
+
+            .writing-section {
+                margin: 5rem auto;
+                padding: 0 1.5rem;
+            }
+
+            .writing-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .article-card {
+                padding: 2rem;
+            }
+
+            footer {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
