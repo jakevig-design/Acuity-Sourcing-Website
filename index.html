@@ -1,800 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acuity Sourcing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f7f7f6;
-    --bg-warm: #eeeeec;
-    --ink: #131313;
-    --ink-soft: #2a2a2a;
-    --ink-muted: #6a6a6a;
-    --accent: #5e8b3f;
-    --accent-soft: #7fa85f;
-    --rule: #d8d8d5;
-    --paper: #ffffff;
-    --max: 1120px;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acuity Sourcing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --navy: #131F53;
+            --teal: #1A9599;
+            --green: #7EBD41;
+            --paper: #FFFFFF;
+            --mist: #F5F6F8;
+            --slate: #6B7280;
+            --graphite: #1F2937;
+            --border-light: #E5E7EB;
+            --serif: 'Source Serif Pro', Georgia, serif;
+            --sans: 'Inter', Helvetica, sans-serif;
+            --gradient: linear-gradient(90deg, #131F53 0%, #1A9599 55%, #7EBD41 100%);
+        }
 
-  html { scroll-behavior: smooth; }
-  html, body { overflow-x: hidden; max-width: 100%; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-  body {
-    background: var(--bg); color: var(--ink);
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    font-feature-settings: "ss01", "ss02";
-    -webkit-font-smoothing: antialiased;
-  }
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--graphite);
+            line-height: 1.65;
+        }
 
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--bg);
-    border-bottom: 1px solid var(--rule);
-    padding: 20px 32px;
-  }
-  .nav-inner {
-    max-width: var(--max);
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .nav-logo {
-    font-family: 'Fraunces', serif;
-    font-size: 21px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .nav-logo em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--accent);
-  }
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-  .nav-links a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
+        /* Header */
+        header {
+            padding: 2rem 3rem;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--paper);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-  section {
-    padding: 100px 32px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .container {
-    max-width: var(--max);
-    margin: 0 auto;
-  }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  .section-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 32px;
-    display: block;
-  }
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
 
-  /* HERO */
-  .hero {
-    padding: 120px 32px 140px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(156, 66, 33, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-brand {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-bottom: 48px;
-  }
-  .hero h1 {
-    font-size: clamp(38px, 5.5vw, 64px);
-    line-height: 1.1;
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    margin-bottom: 56px;
-    max-width: 920px;
-  }
-  .hero h1 em {
-    color: var(--accent);
-    font-style: normal;
-    font-weight: inherit;
-  }
-  .hero-body {
-    max-width: 680px;
-    font-size: 20px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-  }
-  .hero-body p { margin-bottom: 24px; }
-  .hero-body p:last-child {
-    color: var(--ink);
-    border-left: 2px solid var(--accent);
-    padding-left: 20px;
-    font-weight: 500;
-  }
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
 
-  /* STATS STRIP */
-  .stats {
-    padding: 60px 32px;
-    background: var(--bg-warm);
-    border-bottom: 1px solid var(--rule);
-  }
-  .stats-grid {
-    max-width: var(--max);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 48px;
-  }
-  .stat-num {
-    font-family: 'Inter', sans-serif;
-    font-size: 34px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .stat-num sup {
-    font-size: 24px;
-    vertical-align: top;
-    position: relative;
-    top: 8px;
-    margin-left: 2px;
-    color: var(--accent);
-  }
-  .stat-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    color: var(--ink-muted);
-    line-height: 1.4;
-  }
+        .nav a {
+            text-decoration: none;
+            color: var(--graphite);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
 
-  /* ORIGIN STORY */
-  .origin h2 {
-    font-size: 36px;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.15;
-    margin-bottom: 48px;
-    max-width: 720px;
-  }
-  .origin h2 em { color: var(--accent); font-style: normal; font-weight: inherit; }
-  .origin-body {
-    max-width: 720px;
-    font-size: 19px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-  }
-  .origin-body p { margin-bottom: 24px; }
-  .origin-link {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
-    margin-top: 16px;
-    display: inline-block;
-  }
+        .nav a:hover {
+            color: var(--teal);
+        }
 
-  /* PRINCIPLES */
-  .principles {
-    background: var(--paper);
-  }
-  .principles h2 {
-    font-size: 42px;
-    font-weight: 400;
-    letter-spacing: -0.015em;
-    margin-bottom: 72px;
-  }
-  .principles h2 em { color: var(--accent); font-style: normal; font-weight: inherit; }
-  .principle {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 48px;
-    padding: 40px 0;
-    border-top: 1px solid var(--rule);
-    align-items: start;
-  }
-  .principle:last-child { border-bottom: 1px solid var(--rule); }
-  .principle-num {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    color: var(--accent);
-    line-height: 1;
-    padding-top: 12px;
-  }
-  .principle-content h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-    margin-bottom: 16px;
-    color: var(--ink);
-  }
-  .principle-content p {
-    font-size: 17px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    max-width: 700px;
-  }
+        /* Hero */
+        .hero {
+            max-width: 1200px;
+            margin: 5rem auto 6rem;
+            padding: 0 3rem;
+            text-align: center;
+        }
 
-  /* WHAT I DO */
-  .what h2 {
-    font-size: 36px;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    margin-bottom: 12px;
-  }
-  .what h2 em { color: var(--accent); font-style: normal; font-weight: inherit; }
-  .what-subtitle {
-    font-size: 16px;
-    color: var(--ink-muted);
-    margin-bottom: 64px;
-  }
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-  .card {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    padding: 48px 40px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  .card-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-  }
-  .card h3 {
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    margin-bottom: 20px;
-    min-height: 60px;
-  }
-  .card h3 em { font-style: normal; color: var(--accent); }
-  .card-body {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    margin-bottom: 24px;
-    flex-grow: 1;
-  }
-  .card-for {
-    font-size: 14px;
-    color: var(--ink-muted);
-    line-height: 1.55;
-    border-top: 1px solid var(--rule);
-    padding-top: 20px;
-    margin-bottom: 28px;
-    min-height: 80px;
-  }
-  .card-link {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
-  }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
 
-  /* PARIO DEDICATED */
-  .pario {
-    background: var(--ink);
-    color: var(--paper);
-    border-bottom: none;
-  }
-  .pario .section-label { color: var(--accent-soft); }
-  .pario h2 {
-    font-size: clamp(28px, 3.5vw, 38px);
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.2;
-    margin-bottom: 48px;
-    max-width: 900px;
-    color: var(--paper);
-  }
-  .pario h2 em { font-style: normal; color: var(--accent-soft); }
-  .pario-body {
-    max-width: 720px;
-    font-size: 18px;
-    line-height: 1.7;
-    color: rgba(250, 247, 241, 0.85);
-  }
-  .pario-body p { margin-bottom: 24px; }
-  .pario-body p em {
-    font-style: normal;
-    color: rgba(250, 247, 241, 0.65);
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-    display: block;
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(250, 247, 241, 0.15);
-  }
-  .pario-link {
-    display: inline-block;
-    margin-top: 32px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--accent-soft);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent-soft);
-    padding-bottom: 2px;
-  }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--slate);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+            font-weight: 400;
+        }
 
-  /* PORTFOLIO */
-  .portfolio h2 {
-    font-size: 36px;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    margin-bottom: 12px;
-  }
-  .portfolio h2 em { color: var(--accent); font-style: normal; font-weight: inherit; }
-  .portfolio-subtitle {
-    font-size: 16px;
-    color: var(--ink-muted);
-    margin-bottom: 14px;
-  }
-  .portfolio-note {
-    font-size: 15px;
-    color: var(--ink-muted);
-    margin-bottom: 56px;
-    max-width: 680px;
-  }
-  .case {
-    padding: 40px 0;
-    border-top: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-  .case:last-of-type { border-bottom: 1px solid var(--rule); }
-  .case-meta {
-    position: sticky;
-    top: 120px;
-  }
-  .case-industry {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-  .case-title {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    line-height: 1.25;
-    color: var(--ink);
-  }
-  .case-body {
-    font-size: 16px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-  }
-  .portfolio-cta {
-    margin-top: 48px;
-  }
-  .portfolio-cta a {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
-  }
+        /* Problem section */
+        .problem {
+            max-width: 1000px;
+            margin: 6rem auto;
+            padding: 4rem 3rem;
+            background: var(--mist);
+            border-left: 4px solid var(--teal);
+        }
 
-  /* WRITING */
-  .writing {
-    background: var(--bg-warm);
-  }
-  .writing h2 {
-    font-size: 36px;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    margin-bottom: 12px;
-  }
-  .writing h2 em { color: var(--accent); font-style: normal; font-weight: inherit; }
-  .writing-note {
-    font-size: 15px;
-    color: var(--ink-muted);
-    margin-bottom: 56px;
-  }
-  .essay-card {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    padding: 56px 48px;
-    max-width: 880px;
-  }
-  .essay-meta {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 24px;
-  }
-  .essay-card h3 {
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-  }
-  .essay-card h3 em { font-style: normal; color: var(--accent); }
-  .essay-excerpt {
-    font-size: 17px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    margin-bottom: 28px;
-    border-left: 2px solid var(--accent);
-    padding-left: 20px;
-  }
-  .essay-card-link {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
-  }
+        .problem h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
 
-  /* CONTACT */
-  .contact {
-    text-align: center;
-    padding: 140px 32px;
-  }
-  .contact h2 {
-    font-size: clamp(40px, 5vw, 58px);
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    margin-bottom: 32px;
-  }
-  .contact h2 em { color: var(--accent); font-style: normal; font-weight: inherit; }
-  .contact p {
-    max-width: 560px;
-    margin: 0 auto 48px;
-    font-size: 19px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-  }
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  .contact-links a {
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 4px;
-  }
-  .contact-links a:hover { color: var(--accent); }
+        .problem p {
+            font-size: 1rem;
+            color: var(--slate);
+            line-height: 1.75;
+            margin: 0;
+        }
 
-  footer {
-    padding: 40px 32px;
-    border-top: 1px solid var(--rule);
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: var(--ink-muted);
-    letter-spacing: 0.02em;
-  }
+        /* Three Principles */
+        .principles {
+            max-width: 1200px;
+            margin: 8rem auto;
+            padding: 0 3rem;
+        }
 
-  @media (max-width: 800px) {
-    .cards, .stats-grid { grid-template-columns: 1fr; gap: 24px; }
-    .case { grid-template-columns: 1fr; gap: 16px; }
-    .case-meta { position: static; }
-    .principle { grid-template-columns: 48px 1fr; gap: 24px; }
-    .principle-num { font-size: 28px; }
-    section { padding: 64px 24px; }
-    .hero { padding: 80px 24px 96px; }
-  }
+        .principles h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--navy);
+        }
 
-  @media (max-width: 700px) {
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 20px 24px; gap: 16px; }
-    .nav-links.open { display: flex; }
-    .nav-toggle { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
-    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); }
-  }
-  @media (min-width: 701px) {
-    .nav-toggle { display: none; }
-  }
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
 
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    section { padding: 60px 20px; }
-    h1 { font-size: clamp(28px, 7vw, 36px); }
-    h2 { font-size: 26px; }
-    h3 { font-size: 19px; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-    .stat-num { font-size: 26px; }
-    .hero { padding: 60px 20px 80px; }
-    .hero h1 { font-size: clamp(28px, 7vw, 36px); word-wrap: break-word; }
-    .pario { padding: 60px 20px; }
-    .principle { grid-template-columns: 1fr; gap: 12px; }
-    .principle-num { font-size: 12px; }
-  }
-</style>
+        .principle {
+            text-align: center;
+        }
+
+        .principle-icon {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1.5rem;
+            background: var(--mist);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+
+        .principle h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+
+        .principle p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+        }
+
+        /* Services */
+        .services {
+            max-width: 1200px;
+            margin: 8rem auto;
+            padding: 0 3rem;
+        }
+
+        .services h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--navy);
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--paper);
+            border: 1px solid var(--border-light);
+            padding: 2.5rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .service-card:hover {
+            border-color: var(--teal);
+            box-shadow: 0 8px 24px rgba(26, 149, 153, 0.12);
+        }
+
+        .service-card h3 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+            color: var(--navy);
+        }
+
+        .service-trigger {
+            font-size: 0.8rem;
+            color: var(--slate);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            display: inline-block;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .service-link::after {
+            content: ' →';
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover .service-link {
+            transform: translateX(4px);
+        }
+
+        /* Methodology */
+        .methodology {
+            max-width: 1200px;
+            margin: 8rem auto;
+            padding: 0 3rem;
+        }
+
+        .methodology h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--navy);
+        }
+
+        .methodology-phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .phase {
+            background: var(--mist);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--teal);
+        }
+
+        .phase h3 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .phase h4 {
+            font-family: var(--serif);
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--slate);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .phase p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+        }
+
+        .methodology-note {
+            text-align: center;
+            color: var(--slate);
+            font-size: 0.9rem;
+            font-style: italic;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* CTA Section */
+        .cta {
+            max-width: 1200px;
+            margin: 8rem auto;
+            padding: 4.5rem 3rem;
+            background: var(--gradient);
+            color: var(--paper);
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .cta h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--paper);
+            color: var(--navy);
+            padding: 0.875rem 2.25rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            font-family: var(--sans);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem;
+            text-align: center;
+            color: var(--slate);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-light);
+            margin-top: 8rem;
+        }
+
+        footer a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p:last-child {
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .principles-grid,
+            .services-list,
+            .methodology-phases {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .principles,
+            .services,
+            .methodology,
+            .problem {
+                padding: 0 1.5rem;
+            }
+
+            .cta {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Acuity</div>
+            <nav class="nav">
+                <a href="#services">Services</a>
+                <a href="#methodology">How We Work</a>
+                <a href="acuity-portfolio.html">Portfolio</a>
+                <a href="mailto:jake@acuitysourcing.com">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Acuity <em>Sourcing</em></a>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <div class="nav-links">
-      <a href="/how-i-work">What I Do</a>
-      <a href="/work">Work</a>
-      <a href="/writing/software-expensive">Writing</a>
-      <a href="/about">About</a>
-      <a href="/#contact">Contact</a>
-    </div>
-  </div>
-</nav>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>You walk in aligned. They walk in outnumbered.</h1>
+        <p>Software sourcing advisory for organizations where the wrong vendor move costs millions. Twenty years of deal experience. One practitioner. No hand-off.</p>
+    </section>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-brand">Acuity Sourcing</div>
-    <h1>A software deal is won the same way <em>any hard thing</em> is won. In the work you put in before the other side shows up.</h1>
-    <div class="hero-body">
-      <p>While you're "just looking", the vendor is already working. They're mapping your organizational structure, profiling your budget, and figuring out who they need to get it to close. Meanwhile the business case is vague, the requirements are soft, and nobody internally has agreed on what success looks like. By the time procurement gets involved, you've lost on both sides of the table.</p>
-      <p>I've spent twenty years on the buyer's side, learning what that work actually looks like and how to do it before the leverage is gone. Acuity is a requirements-first shop. That's where the leverage lives.</p>
-    </div>
-  </div>
-</section>
+    <!-- Problem -->
+    <section class="problem">
+        <h2>The Problem</h2>
+        <p>Enterprise software procurement is structurally broken in favor of vendors. By the time procurement arrives, the scope has been shaped, the vendor selected, and the price anchored. Most organizations buy software they don't fully understand, at prices they've never independently validated, against vendors who have done it many more times than they have.</p>
+    </section>
 
-<section class="stats">
-  <div class="stats-grid">
-    <div>
-      <div class="stat-num">20</div>
-      <div class="stat-label">Years negotiating enterprise software</div>
-    </div>
-    <div>
-      <div class="stat-num">$750M</div>
-      <div class="stat-label">Software portfolio separated in spin-off</div>
-    </div>
-    <div>
-      <div class="stat-num">$85M</div>
-      <div class="stat-label">Annual spend managed at top asset manager</div>
-    </div>
-    <div>
-      <div class="stat-num">$60M</div>
-      <div class="stat-label">In audit exposure mitigated</div>
-    </div>
-  </div>
-</section>
+    <!-- Three Principles -->
+    <section class="principles">
+        <h2>Three Variables Determine Every Deal</h2>
+        <div class="principles-grid">
+            <div class="principle">
+                <div class="principle-icon">⏱</div>
+                <h3>Time is Leverage</h3>
+                <p>Eighteen months of runway is a strategy. Sixty days is a transaction. Control when the deal closes and every other variable works in your favor.</p>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">ℹ</div>
+                <h3>Information is Currency</h3>
+                <p>Budget disclosed is leverage surrendered. The moment a vendor knows your ceiling, the negotiation is over. They'll price to it exactly.</p>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">💰</div>
+                <h3>Right Price, Not Low Price</h3>
+                <p>A 40% discount usually means you were 40% overcharged. The goal is a deal structured correctly from day one, no vendor anchor required.</p>
+            </div>
+        </div>
+    </section>
 
-<section class="origin" id="origin">
-  <div class="container">
-    <span class="section-label">Why Acuity Exists</span>
-    <h2>The deals were different every time. <em>The failure mode was the same.</em></h2>
-    <div class="origin-body">
-      <p>Twenty years ago I took a job in procurement by accident and ended up spending my career negotiating enterprise software, at GE Vernova, GE Company, BlackRock, the Federal Reserve Bank of New York, Moody's, and Macmillan. Trading platforms, OEM licensing, audit defense, post-M&amp;A consolidation, the works.</p>
-      <p>Different deals, different industries, different vendors. The pattern was always the same.</p>
-      <p>Business users found a tool they wanted, started talking to the vendor before anyone had written a real business case, and by the time procurement showed up the deal was already half-built, on the vendor's terms. The requirements were soft. The stakeholders weren't aligned. The budget was either a guess or already disclosed. And the vendor had been running the play since the first demo.</p>
-      <p>I built Acuity because that pattern is fixable, and almost nobody is fixing it. The work that matters happens before the vendor ever sees a procurement person, and most organizations don't have anyone doing that work. Acuity is a boutique shop focused on exactly that: requirements, business cases, and the internal alignment that makes everything downstream actually work.</p>
-      <a href="/about" class="origin-link">Read the full story →</a>
-    </div>
-  </div>
-</section>
+    <!-- Services -->
+    <section class="services" id="services">
+        <h2>How We Help</h2>
+        <div class="services-list">
+            <div class="service-card">
+                <h3>Advisory</h3>
+                <div class="service-trigger">When you're buying or transitioning platforms</div>
+                <p>Your organization is making a major software decision—a competitive bid, a master agreement renegotiation, a post-acquisition platform consolidation. The wrong move costs millions. We bring deal strategy and negotiation support from inside the room.</p>
+                <a href="acuity-portfolio.html#advisory" class="service-link">See case studies</a>
+            </div>
 
-<section class="principles" id="principles">
-  <div class="container">
-    <span class="section-label">Principles</span>
+            <div class="service-card">
+                <h3>License Intelligence</h3>
+                <div class="service-trigger">When you have compliance or audit exposure</div>
+                <p>You've discovered unknown license exposure, faced an audit notice, or inherited an unclear software estate after an acquisition. You need forensic work on what you actually own and where the risk is.</p>
+                <a href="acuity-portfolio.html#license" class="service-link">See case studies</a>
+            </div>
 
-    <div class="principle">
-      <div class="principle-num">01</div>
-      <div class="principle-content">
-        <h3>Early is the only leverage.</h3>
-        <p>Eighteen months of runway is a strategy. Sixty days is a transaction. Vendors have quarter-end, year-end, and pipeline pressures that are mostly invisible to buyers, and a credible commitment to close on their timing can move a price no amount of negotiation will. Either way, time is the instrument. You have to know how to use it.</p>
-      </div>
-    </div>
+            <div class="service-card">
+                <h3>Enablement</h3>
+                <div class="service-trigger">When you're building internal capability</div>
+                <p>You want the discipline and methodology inside your team rather than purchased per-engagement. Training, coaching, and curriculum work that installs a repeatable sourcing operating system.</p>
+                <a href="acuity-portfolio.html#enablement" class="service-link">See case studies</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="principle">
-      <div class="principle-num">02</div>
-      <div class="principle-content">
-        <h3>Information is currency. Spend it intentionally.</h3>
-        <p>Vendors are trained to extract information. Budget, timeline, internal politics, pain points. Buyers are almost never trained to withhold it. Every piece you share moves the price, narrows your options, or shifts a deadline. The discipline isn't silence. It's knowing what each piece is worth before you spend it.</p>
-      </div>
-    </div>
+    <!-- Methodology -->
+    <section class="methodology" id="methodology">
+        <h2>How We Work</h2>
+        <div class="methodology-phases">
+            <div class="phase">
+                <h3>Phase 1</h3>
+                <h4>Define what good looks like</h4>
+                <p>Establish what your organization actually needs from a platform, before any vendor is in the room. Requirements drive everything that follows.</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 2</h3>
+                <h4>Make a defensible recommendation</h4>
+                <p>Compare alternatives against your requirements, model the all-in cost of each path, and identify the decision that holds up under scrutiny.</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 3</h3>
+                <h4>Make the win sustainable</h4>
+                <p>Build the governance and review cadence that keeps the platform decision strong through every renewal cycle and market change.</p>
+            </div>
+        </div>
+        <p class="methodology-note">The methodology is the same across all three services. The scope and depth changes based on your situation.</p>
+    </section>
 
-    <div class="principle">
-      <div class="principle-num">03</div>
-      <div class="principle-content">
-        <h3>Right price is determined, not discovered.</h3>
-        <p>Requirements are the only thing that tells you what a piece of software is worth to you. Benchmarks tell you what other companies paid. Vendor quotes tell you what they hope you'll pay. Neither of those is an answer. Your requirements are.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- CTA -->
+    <section class="cta">
+        <h2>A major software decision is in front of you.</h2>
+        <p>Let's talk about what that looks like.</p>
+        <a href="mailto:jake@acuitysourcing.com?subject=Let%27s%20talk%20about%20software%20sourcing" class="cta-button">Get in touch</a>
+    </section>
 
-<section class="what" id="what">
-  <div class="container">
-    <span class="section-label">What I Do</span>
-    <h2>Same thesis. <em>Two ways to deliver it.</em></h2>
-    <div class="what-subtitle">Hands-on advisory and the software version of the same methodology.</div>
-    <div class="cards">
-      <div class="card">
-        <div class="card-label">Acuity · Consulting</div>
-        <h3><em>Hands-on advisory</em> for the work before the vendor shows up.</h3>
-        <p class="card-body">Business cases, requirements development, competitive bid design, executive alignment, and negotiation support for the deals where getting it right actually matters.</p>
-        <div class="card-for">For: teams running a specific high-stakes purchase, renewal, or competitive bid, who need a senior practitioner involved from day one.</div>
-        <a href="/how-i-work" class="card-link">How I work →</a>
-      </div>
-      <div class="card">
-        <div class="card-label">Pario · Software</div>
-        <h3><em>The productized version</em> of the same methodology.</h3>
-        <p class="card-body">Structured scoping, requirements, vendor research, and a defensible business case, ready to walk into your boss's office with. Built for teams that need the work done but don't have access to someone like me.</p>
-        <div class="card-for">For: business users evaluating a software purchase who want to get it right before anyone writes a check.</div>
-        <a href="https://planwithpario.com" class="card-link">Try Pario →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="pario" id="pario">
-  <div class="container">
-    <span class="section-label">Pario</span>
-    <h2>The software I built <em>because my consulting can't scale.</em></h2>
-    <div class="pario-body">
-      <p>After twenty years of watching the same failure mode show up at every company, I realized the real problem wasn't that buyers were making bad deals. It was that most buyers never had access to someone who'd seen how these deals actually go. By the time a sourcing professional got involved, the damage was done. By the time a consultant like me got involved, the deal was usually too big and the client too sophisticated for the work to scale.</p>
-      <p>Pario is the software version of the first thing I do on any consulting engagement. You describe the problem. It walks you through a structured scoping conversation, helps you build requirements that hold up commercially, researches the vendor landscape, and generates a business case you can walk into your boss's office with. In thirty minutes you'll have done more rigorous work than most enterprise teams do in a month of internal meetings.</p>
-      <p>It's not a procurement tool. It's not an RFP platform. It's a preparation tool for the people who will actually have to live with the software they buy, and it's built on the same methodology I use when I'm doing the work myself.</p>
-      <p><em>Currently in private beta.</em></p>
-      <a href="https://planwithpario.com" class="pario-link">See Pario →</a>
-    </div>
-  </div>
-</section>
-
-<section class="portfolio" id="portfolio">
-  <div class="container">
-    <span class="section-label">Selected Work</span>
-    <h2>Every engagement is different. <em>The thinking is consistent.</em></h2>
-    <p class="portfolio-note">The work below represents twenty years of hands-on enterprise software sourcing, in-house and on contract.</p>
-
-    <div class="case">
-      <div class="case-meta">
-        <div class="case-industry">Industrial · Spin-off</div>
-        <div class="case-title">Newly Independent Global Technology Company</div>
-      </div>
-      <div class="case-body">
-        Led the contract separation strategy for a $750M engineering applications portfolio ahead of a publicly announced corporate split. Proactively renegotiated 40+ master agreements to preserve commercial terms and secure operational continuity, and mitigated separation and transfer costs by $34M. Built the sourcing function from scratch for a company with a 130-year history and no existing process.
-      </div>
-    </div>
-
-    <div class="case">
-      <div class="case-meta">
-        <div class="case-industry">Financial · Asset Management</div>
-        <div class="case-title">Global Asset Management Firm</div>
-      </div>
-      <div class="case-body">
-        Managed $85M in annual software spend across trading platforms and post-M&amp;A integrations. Delivered $20M in negotiated savings and an additional $10M through demand management and entitlement discipline. Redesigned the vendor onboarding workflow for low-risk categories, reducing onboarding time by 60% without compromising policy compliance.
-      </div>
-    </div>
-
-    <div class="case">
-      <div class="case-meta">
-        <div class="case-industry">Financial · Analytics</div>
-        <div class="case-title">Global Financial Analytics Firm</div>
-      </div>
-      <div class="case-body">
-        Brought in after a significant software audit to build the Software Asset Management function from the ground up. Selected and implemented an ITAM platform managing $500M+ in software assets, and mitigated $60M of audit exposure. Led a 15% reduction in annual Microsoft Enterprise Agreement spend.
-      </div>
-    </div>
-
-    <div class="portfolio-cta">
-      <a href="/work">See the full portfolio →</a>
-    </div>
-  </div>
-</section>
-
-<section class="writing" id="writing">
-  <div class="container">
-    <span class="section-label">Writing</span>
-    <h2>Point of view, <em>on the record.</em></h2>
-    <p class="writing-note">The first in a series. More coming soon.</p>
-
-    <article class="essay-card">
-      <div class="essay-meta">Essay · Featured</div>
-      <h3>Your software isn't expensive because the code is heavy. <em>It's expensive because you don't know how to buy it.</em></h3>
-      <div class="essay-excerpt">
-        Twenty years of negotiating enterprise software on the buyer's side has shown me the same pattern at every company I've worked with. The deal goes badly in a predictable way, and it almost always goes badly for the same three reasons.
-      </div>
-      <a href="/writing/software-expensive" class="essay-card-link">Read the essay →</a>
-    </article>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="container">
-    <h2>Let's <em>talk.</em></h2>
-    <p>If any of this resonated, reach out. I'm easy to find. No forms, no qualification calls. Just send me a note and tell me what's going on.</p>
-    <div class="contact-links">
-      <a href="mailto:info@acuitysourcing.com">info@acuitysourcing.com</a>
-      <a href="https://www.linkedin.com/in/jakevig/">LinkedIn</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2026 Acuity Sourcing
-</footer>
-
+    <!-- Footer -->
+    <footer>
+        <p>Acuity Sourcing | <a href="mailto:jake@acuitysourcing.com">jake@acuitysourcing.com</a> | <a href="https://linkedin.com/in/jakevig">LinkedIn</a></p>
+        <p>20 years across GE Vernova, BlackRock, Federal Reserve Bank of NY, Moody's Analytics, Macmillan Publishers</p>
+    </footer>
 </body>
 </html>

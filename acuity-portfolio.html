@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Acuity Sourcing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #131F53;
+            --teal: #1A9599;
+            --green: #7EBD41;
+            --paper: #FFFFFF;
+            --mist: #F5F6F8;
+            --slate: #6B7280;
+            --graphite: #1F2937;
+            --border-light: #E5E7EB;
+            --serif: 'Source Serif Pro', Georgia, serif;
+            --sans: 'Inter', Helvetica, sans-serif;
+            --gradient: linear-gradient(90deg, #131F53 0%, #1A9599 55%, #7EBD41 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--graphite);
+            line-height: 1.65;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 3rem;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--paper);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--graphite);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--teal);
+        }
+
+        /* Hero */
+        .portfolio-hero {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 3rem;
+        }
+
+        .portfolio-hero h1 {
+            font-family: var(--serif);
+            font-size: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .portfolio-hero p {
+            font-size: 1rem;
+            color: var(--slate);
+            max-width: 700px;
+        }
+
+        /* Service Section */
+        .service-section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 3rem;
+        }
+
+        .service-section h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+        }
+
+        .service-section p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+
+        .service-section p strong {
+            color: var(--graphite);
+            font-weight: 600;
+        }
+
+        /* Case Study */
+        .case-study {
+            background: var(--paper);
+            border: 1px solid var(--border-light);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .case-study::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .case-study-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .case-study h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .case-study-meta {
+            font-size: 0.85rem;
+            color: var(--slate);
+            font-style: italic;
+        }
+
+        .case-study-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--mist);
+            color: var(--teal);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
+            border-radius: 2px;
+            font-weight: 500;
+        }
+
+        /* Case Study Content */
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 1.5rem;
+            align-items: start;
+        }
+
+        .case-study-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-study-section h4 {
+            font-family: var(--serif);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        .case-study-section p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        /* Results Highlight */
+        .results-highlight {
+            grid-column: 1 / -1;
+            background: var(--mist);
+            padding: 1.5rem;
+            border-left: 4px solid var(--green);
+            margin-top: 1rem;
+        }
+
+        .results-highlight h4 {
+            margin-top: 0;
+            color: var(--navy);
+        }
+
+        .result-item {
+            font-size: 0.95rem;
+            color: var(--slate);
+            margin-bottom: 0.75rem;
+        }
+
+        .result-item strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Pattern/Takeaway */
+        .pattern {
+            padding: 1.5rem;
+            background: var(--mist);
+            border-left: 4px solid var(--slate);
+            margin-top: 1rem;
+        }
+
+        .pattern p {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.65;
+            font-style: italic;
+        }
+
+        .pattern strong {
+            color: var(--navy);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem;
+            text-align: center;
+            color: var(--slate);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-light);
+            margin-top: 8rem;
+        }
+
+        footer a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p:last-child {
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .portfolio-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .service-section,
+            .case-study {
+                padding: 0 1.5rem;
+            }
+
+            .case-study {
+                padding: 1.5rem;
+            }
+
+            .case-study::before {
+                width: 100%;
+                height: 4px;
+                border-radius: 4px 4px 0 0;
+            }
+
+            .case-study-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .case-study-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .results-highlight {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">Acuity</a>
+            <nav class="nav">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#methodology">How We Work</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="mailto:jake@acuitysourcing.com">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="portfolio-hero">
+        <h1>Portfolio</h1>
+        <p>Five engagements across industrial, financial services, and regulated sectors. Each organized by the service that made the difference.</p>
+    </section>
+
+    <!-- Advisory Section -->
+    <section class="service-section" id="advisory">
+        <h2>Advisory</h2>
+        <p><strong>When you're buying or transitioning platforms.</strong> Your organization is making a major software decision and the wrong vendor move costs millions. We bring deal strategy and negotiation support.</p>
+
+        <!-- Case Study 1 -->
+        <div class="case-study">
+            <div class="case-study-header">
+                <div>
+                    <h3>Engineering Software Portfolio Separation During Major Corporate Spin-Off</h3>
+                    <p class="case-study-meta">Industrial Energy / Clean Technology</p>
+                </div>
+                <div class="case-study-tags">
+                    <span class="tag">Strategic Sourcing</span>
+                    <span class="tag">Contract Negotiation</span>
+                    <span class="tag">Category Strategy</span>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Problem</h4>
+                    <p>A global industrial company undergoing a multi-entity corporate spin-off faced immediate risk of operational disruption across its engineering software portfolio—PLM, CAD, and simulation tools essential to its core business. Hundreds of vendor agreements were legally tethered to the legacy parent company, exposing the newly independent entity to costly transfer fees, assignment clauses, and potential loss of entitlements at the moment of separation.</p>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Actions</h4>
+                    <p>Developed and executed a $100M global engineering software category strategy tailored to the newly independent company's mission. Led proactive renegotiation of 40+ master agreements in advance of the spin-off deadline to secure continuity terms and eliminate transfer risk. Applied Lean methodology to stakeholder dashboards, iterating on metrics based on continuous feedback to keep senior leadership informed throughout the transition. Conducted full rationalization of inherited license entitlements.</p>
+                </div>
+            </div>
+
+            <div class="results-highlight">
+                <h4>Results</h4>
+                <div class="result-item"><strong>$34M</strong> in separation and transfer costs mitigated</div>
+                <div class="result-item">Secured <strong>uninterrupted access</strong> to mission-critical engineering software on day one of independence</div>
+                <div class="result-item">Delivered <strong>$100M category strategy</strong> aligned with company's electrification and decarbonization mandate</div>
+            </div>
+
+            <div class="pattern">
+                <p><strong>Pattern:</strong> When you have months of runway before a deadline, proactive renegotiation against the clock pressure vendors operate under moves a price no amount of negotiation skill will touch. Time becomes leverage.</p>
+            </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="case-study">
+            <div class="case-study-header">
+                <div>
+                    <h3>Strategic Sourcing and Supplier Integration Support for Enterprise Investment Platform Expansion</h3>
+                    <p class="case-study-meta">Financial Services / Asset Management</p>
+                </div>
+                <div class="case-study-tags">
+                    <span class="tag">Strategic Sourcing</span>
+                    <span class="tag">Supplier Management</span>
+                    <span class="tag">M&A Integration</span>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Problem</h4>
+                    <p>A major asset management firm was expanding its flagship technology platform through a series of acquisitions and integrations—adding fixed income auction functionality, derivatives intelligence, and private asset management capabilities. M&A-driven supplier onboarding was slow and inconsistent. The existing sourcing function lacked the structure to operate at the pace the product roadmap demanded.</p>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Actions</h4>
+                    <p>Led strategic sourcing for $85M in annual platform spend, deploying a dual-track approach: direct negotiation to drive cost savings alongside demand management controls to eliminate low-value spend. Diagnosed M&A integration inefficiencies by mapping supplier workflows against commodity profiles and redesigned the onboarding process. Built and delivered RFx training for the global sourcing team covering $800M in contracts. Introduced scorecard-based supplier management and quarterly business reviews to shift relationships from reactive to performance-accountable.</p>
+                </div>
+            </div>
+
+            <div class="results-highlight">
+                <h4>Results</h4>
+                <div class="result-item"><strong>$30M</strong> in total value captured—<strong>$20M</strong> in negotiated savings and <strong>$10M</strong> through demand management controls</div>
+                <div class="result-item">Accelerated supplier onboarding speed by <strong>60%</strong>, directly enabling faster platform integrations</div>
+                <div class="result-item">Established <strong>repeatable sourcing and supplier management operating model</strong> used across the global team</div>
+            </div>
+
+            <div class="pattern">
+                <p><strong>Pattern:</strong> Internal friction (between Sourcing, IT, and business units) is often the actual constraint, not external negotiation. Speed comes from aligning internal stakeholders on a single definition of value, then using that alignment to compress the vendor conversation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- License Intelligence Section -->
+    <section class="service-section" id="license">
+        <h2>License Intelligence</h2>
+        <p><strong>When you have compliance or audit exposure.</strong> You've discovered unknown license exposure, faced an audit notice, or inherited an unclear software estate. We deliver forensic work on what you actually own and where the risk is.</p>
+
+        <!-- Case Study 4 -->
+        <div class="case-study">
+            <div class="case-study-header">
+                <div>
+                    <h3>Software Compliance Infrastructure Build and Audit Risk Mitigation for Financial Data Firm</h3>
+                    <p class="case-study-meta">Financial Services / Data & Analytics</p>
+                </div>
+                <div class="case-study-tags">
+                    <span class="tag">Software Asset Management</span>
+                    <span class="tag">Compliance</span>
+                    <span class="tag">Contract Negotiation</span>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Problem</h4>
+                    <p>Following a significant software audit that resulted in substantial fines, a financial data and analytics firm's leadership recognized it had no structured software asset management capability. $500M+ in software assets were untracked, leaving the organization exposed to ongoing compliance and financial risk.</p>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Actions</h4>
+                    <p>Served as IT Sourcing subject matter expert throughout ITAM tool evaluation and implementation, steering a joint sourcing-IT initiative to select and deploy a platform capable of bringing the full software asset base under active management. Remained post-implementation as the Microsoft CMDB specialist to ensure the governance infrastructure held. Served as global lead for Microsoft Enterprise Agreement renegotiation, applying market intelligence and usage analysis to drive meaningful cost reduction during international expansion and M&A activity.</p>
+                </div>
+            </div>
+
+            <div class="results-highlight">
+                <h4>Results</h4>
+                <div class="result-item">Proactively mitigated <strong>$60M</strong> in audit risk by establishing ITAM governance covering <strong>$500M+</strong> in software assets</div>
+                <div class="result-item">Reduced annual Microsoft Enterprise Agreement spend by <strong>$2M</strong> (<strong>15%</strong> reduction)</div>
+                <div class="result-item">Transformed compliance posture from <strong>reactive to structured</strong>, directly supporting leadership mandate to strengthen internal controls</div>
+            </div>
+
+            <div class="pattern">
+                <p><strong>Pattern:</strong> Organizations discover they have unknown license exposure only after an audit event. The cost to build compliance infrastructure before an audit shows up is a rounding error compared to the cost of remediating it after.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enablement Section -->
+    <section class="service-section" id="enablement">
+        <h2>Enablement</h2>
+        <p><strong>When you're building internal capability.</strong> You want the discipline and methodology inside your team rather than purchased per-engagement. Training, coaching, and curriculum work that installs a repeatable sourcing operating system.</p>
+
+        <!-- Case Study 3 -->
+        <div class="case-study">
+            <div class="case-study-header">
+                <div>
+                    <h3>Fintech and Emerging Technology Sourcing Program Build for Central Banking Institution</h3>
+                    <p class="case-study-meta">Financial Services / Public Sector</p>
+                </div>
+                <div class="case-study-tags">
+                    <span class="tag">Strategic Sourcing</span>
+                    <span class="tag">Program Development</span>
+                    <span class="tag">Team Development</span>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Problem</h4>
+                    <p>A central banking institution was investing in fintech and emerging technologies—robotic process automation, natural language processing, next-generation payment and settlement infrastructure—but lacked a structured sourcing program to support new technology acquisition at scale. Procurement operated without real-time visibility tools, and the sourcing team needed both process infrastructure and talent development to operate effectively within a complex, policy-intensive environment.</p>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Actions</h4>
+                    <p>Built and executed sourcing strategies for $200M+ in new fintech and emerging technology acquisitions, grounding each strategy in rigorous market research rather than vendor-led evaluations. Designed KPI-based reporting dashboards providing real-time project tracking and demand planning visibility. After completing the institution's leadership program, restructured team staffing to put junior staff on administrative tasks and senior staff on complex deal mentorship. Designed and delivered bi-annual procurement policy training for end users across the organization using case-study-driven curriculum with embedded policy violations for participants to identify and resolve.</p>
+                </div>
+            </div>
+
+            <div class="results-highlight">
+                <h4>Results</h4>
+                <div class="result-item">Delivered structured sourcing coverage for <strong>$200M+</strong> in new spend across fintech and emerging technologies</div>
+                <div class="result-item">Built process infrastructure—dashboards, sourcing strategies, team capability—for a function that had previously operated ad hoc</div>
+                <div class="result-item">Procurement policy training reduced sourcing exceptions and policy override requests by <strong>30%</strong> in the year following program launch, eliminating post-purchase compliance review cycles</div>
+                <div class="result-item">Sourcing work in RPA and NLP laid the commercial groundwork for what the institution later formalized as a flagship technology innovation center</div>
+            </div>
+
+            <div class="pattern">
+                <p><strong>Pattern:</strong> Organizations teach policy through lecture; policy literacy actually comes from decision-making under constraint. Case-study-driven training that embeds policy in real sourcing scenarios produces better retention and operational behavior change than any policy manual.</p>
+            </div>
+        </div>
+
+        <!-- Case Study 5 -->
+        <div class="case-study">
+            <div class="case-study-header">
+                <div>
+                    <h3>Procure-to-Pay System Implementation and IT Financial Governance Build for Global Publisher</h3>
+                    <p class="case-study-meta">Media & Publishing / Digital Transformation</p>
+                </div>
+                <div class="case-study-tags">
+                    <span class="tag">Strategic Sourcing</span>
+                    <span class="tag">Procurement Operations</span>
+                    <span class="tag">Financial Reporting</span>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Problem</h4>
+                    <p>A global publishing company undergoing significant digital transformation and organizational restructure was operating without a functioning procure-to-pay system or structured IT financial reporting. The $13M IT department budget was tracked but not allocated in a way that supported decision-making across business units.</p>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Actions</h4>
+                    <p>Designed and implemented a Procure-to-Pay system that brought spend visibility and payment controls to the IT function—enabling advanced spend analytics and accelerating the payment cycle. Built financial reporting infrastructure for the $13M IT budget, translating department costs into business-unit allocations that supported the company's restructure from geographic to global divisions. Conceived and launched an Eco-Friendly IT Asset Disposal program, converting end-of-life hardware from an unmanaged liability into a structured, cost-generating process with environmental compliance built in.</p>
+                </div>
+            </div>
+
+            <div class="results-highlight">
+                <h4>Results</h4>
+                <div class="result-item">Generated <strong>$1M</strong> in cost reduction in the first year through Procure-to-Pay implementation</div>
+                <div class="result-item">Delivered <strong>$250K</strong> in annual recurring savings through the asset disposal program</div>
+                <div class="result-item">Provided finance team with IT cost allocation reporting that supported a major organizational restructuring—including the creation of two global business divisions</div>
+            </div>
+
+            <div class="pattern">
+                <p><strong>Pattern:</strong> Sourcing discipline and process design are two different capabilities. Building P2P from scratch requires both: the sourcing rigor to control spend and the operational discipline to make the system stick. Organizations that skip the sourcing piece end up with process theater.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Acuity Sourcing | <a href="mailto:jake@acuitysourcing.com">jake@acuitysourcing.com</a> | <a href="https://linkedin.com/in/jakevig">LinkedIn</a></p>
+        <p>20 years across GE Vernova, BlackRock, Federal Reserve Bank of NY, Moody's Analytics, Macmillan Publishers</p>
+    </footer>
+</body>
+</html>
