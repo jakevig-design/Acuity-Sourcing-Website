@@ -106,15 +106,6 @@
             text-align: center;
         }
 
-        .hero h1 {
-            font-family: var(--serif);
-            font-size: 3.5rem;
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--navy);
-        }
-
         .hero p {
             font-size: 1.1rem;
             color: var(--slate);
@@ -193,6 +184,65 @@
             line-height: 1.65;
             margin-bottom: 1.5rem;
             flex-grow: 1;
+        }
+
+        /* How I Work */
+        .methodology {
+            margin: 8rem auto;
+        }
+
+        .methodology h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--navy);
+        }
+
+        .phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .phase {
+            background: var(--mist);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--teal);
+        }
+
+        .phase h3 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .phase h4 {
+            font-family: var(--serif);
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--slate);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .phase p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+        }
+
+        .methodology-note {
+            text-align: center;
+            color: var(--slate);
+            font-size: 0.9rem;
+            font-style: italic;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
         }
 
         /* Why Acuity */
@@ -340,32 +390,34 @@
                 margin: 3rem auto 4rem;
             }
 
-            .hero h1 {
-                font-size: 1.875rem;
-                line-height: 1.2;
-            }
-
             .hero p {
                 font-size: 0.95rem;
             }
 
             .services,
+            .methodology,
             .why-acuity {
                 margin: 5rem auto;
             }
 
             .services h2,
+            .methodology h2,
             .why-acuity h2 {
                 font-size: 1.5rem;
                 margin-bottom: 2rem;
             }
 
-            .services-grid {
+            .services-grid,
+            .phases {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
 
             .service-card {
+                padding: 2rem;
+            }
+
+            .phase {
                 padding: 2rem;
             }
 
@@ -394,6 +446,10 @@
         <div class="header-content">
             <a href="/" class="logo">Acuity</a>
             <nav class="nav">
+                <a href="#services">Services</a>
+                <a href="#methodology">How I Work</a>
+                <a href="acuity-portfolio.html">Portfolio</a>
+                <a href="writing/">Writing</a>
                 <a href="about.html">About</a>
                 <a href="mailto:jake@acuitysourcing.com">Contact</a>
             </nav>
@@ -402,12 +458,11 @@
 
     <!-- Hero -->
     <section class="hero container">
-        <h1>A software deal is won the same way any hard thing is won. In the work you put in before the other side shows up.</h1>
-        <p>Browsing won't help. The vendor is already working. They're mapping your organizational structure, profiling your budget, and figuring out who they need to get it to close. Meanwhile the business case is vague, the requirements are soft, and nobody internally has agreed on what success looks like. By the time procurement gets involved, you've lost on both sides of the table.</p>
+        <p>While you're browsing the vendor is already working. They're mapping your organizational structure, profiling your budget, and figuring out who they need to get it to close. Meanwhile the business case is vague, the requirements are soft, and nobody internally has agreed on what success looks like. By the time procurement gets involved, you've lost on both sides of the table.</p>
     </section>
 
     <!-- Services -->
-    <section class="services wide-container">
+    <section class="services wide-container" id="services">
         <h2>Services</h2>
         <div class="services-grid">
             <div class="service-card">
@@ -428,6 +483,29 @@
                 <p>You want the discipline and methodology inside your team rather than purchased per-engagement. Training, coaching, and curriculum work that installs a repeatable sourcing operating system.</p>
             </div>
         </div>
+    </section>
+
+    <!-- How I Work -->
+    <section class="methodology wide-container" id="methodology">
+        <h2>How I Work</h2>
+        <div class="phases">
+            <div class="phase">
+                <h3>Phase 1</h3>
+                <h4>Define what good looks like</h4>
+                <p>Establish what your organization actually needs from a platform, before any vendor is in the room. Requirements drive everything that follows.</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 2</h3>
+                <h4>Make a defensible recommendation</h4>
+                <p>Compare alternatives against your requirements, model the all-in cost of each path, and identify the decision that holds up under scrutiny.</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 3</h3>
+                <h4>Make the win sustainable</h4>
+                <p>Build the governance and review cadence that keeps the platform decision strong through every renewal cycle and market change.</p>
+            </div>
+        </div>
+        <p class="methodology-note">The methodology is the same across all three services. The scope and depth changes based on your situation.</p>
     </section>
 
     <!-- Why Acuity Exists -->
