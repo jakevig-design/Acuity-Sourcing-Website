@@ -1,182 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your software isn't expensive because the code is heavy · Acuity Sourcing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f7f7f6; --bg-warm: #eeeeec;
-    --ink: #131313; --ink-soft: #2a2a2a; --ink-muted: #6a6a6a;
-    --accent: #5e8b3f; --accent-soft: #7fa85f;
-    --rule: #d8d8d5; --paper: #ffffff;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  html, body { overflow-x: hidden; max-width: 100%; }
-  body {
-    background: var(--bg); color: var(--ink);
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: 19px; line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--bg); border-bottom: 1px solid var(--rule);
-    padding: 20px 32px;
-  }
-  .nav-inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-  .nav-logo { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
-  .nav-logo em { font-style: italic; font-weight: 400; color: var(--accent); }
-  .nav-links { display: flex; gap: 36px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
-  .nav-links a { color: var(--ink-soft); text-decoration: none; }
-  .nav-links a:hover, .nav-links a.current { color: var(--accent); }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your software isn't expensive because the code is heavy · Acuity Sourcing</title>
+  <style>
+    :root {
+      --color-navy: #131F53;
+      --color-teal: #1A9599;
+      --color-green: #7EBD41;
+      --color-paper: #FFFFFF;
+      --color-mist: #F5F6F8;
+      --color-slate: #6B7280;
+      --color-graphite: #1F2937;
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      --border-radius-lg: 8px;
+      --border-radius-md: 6px;
+    }
 
-  .article-header {
-    padding: 100px 32px 80px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .article-header-inner {
-    max-width: 760px;
-    margin: 0 auto;
-  }
-  .meta {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 32px;
-  }
-  h1 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(30px, 4vw, 44px);
-    font-weight: 600; letter-spacing: -0.025em;
-    line-height: 1.1;
-    margin-bottom: 40px;
-  }
-  h1 em { color: var(--accent); font-style: normal; font-weight: inherit; }
-  .byline {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: var(--ink-muted);
-    letter-spacing: 0.02em;
-  }
-  .byline strong {
-    font-weight: 600;
-    color: var(--ink);
-    font-size: 15px;
-    letter-spacing: 0;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  .article {
-    padding: 80px 32px 120px;
-  }
-  .article-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .article p {
-    font-size: 19px;
-    line-height: 1.8;
-    color: var(--ink-soft);
-    margin-bottom: 28px;
-  }
-  .article p:first-child::first-letter {
-    font-size: 58px;
-    font-weight: 700;
-    float: left;
-    line-height: 0.85;
-    margin: 6px 12px 0 0;
-    color: var(--accent);
-  }
-  .article h2 {
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.3;
-    margin: 64px 0 24px;
-    color: var(--ink);
-  }
-  .article h2::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: var(--accent);
-    margin-bottom: 20px;
-  }
-  .article em { font-style: italic; }
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-graphite);
+      background: var(--color-paper);
+    }
 
-  footer {
-    padding: 40px 32px;
-    border-top: 1px solid var(--rule);
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px; color: var(--ink-muted);
-    letter-spacing: 0.02em;
-  }
-  @media (max-width: 720px) {
-    .article-header { padding: 60px 24px 60px; }
-    .article { padding: 60px 24px 80px; }
-    .nav-links { gap: 20px; }
-    .article p:first-child::first-letter { font-size: 48px; margin: 4px 8px 0 0; }
-  }
+    /* HEADER & NAV */
+    header {
+      background: var(--color-paper);
+      border-bottom: 1px solid #E5E7EB;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-  @media (max-width: 700px) {
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 20px 24px; gap: 16px; }
-    .nav-links.open { display: flex; }
-    .nav-toggle { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
-    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); }
-  }
-  @media (min-width: 701px) {
-    .nav-toggle { display: none; }
-  }
+    .header-container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    section { padding: 60px 20px; }
-    h1 { font-size: clamp(28px, 7vw, 36px); }
-    h2 { font-size: 26px; }
-    h3 { font-size: 19px; }
-  }
-</style>
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #131F53 0%, #1A9599 55%, #7EBD41 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    nav a {
+      font-size: 13px;
+      color: var(--color-slate);
+      text-decoration: none;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--color-teal);
+    }
+
+    /* HERO SECTION */
+    .hero-divider {
+      height: 3px;
+      width: 40px;
+      background: linear-gradient(90deg, #131F53 0%, #1A9599 55%, #7EBD41 100%);
+      margin-bottom: 16px;
+    }
+
+    .hero-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      text-align: left;
+    }
+
+    .hero-section h1 {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--color-navy);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .hero-section .subtitle {
+      font-size: 16px;
+      color: var(--color-slate);
+      margin-bottom: 24px;
+    }
+
+    .byline {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .byline-text {
+      font-size: 14px;
+      color: var(--color-slate);
+    }
+
+    .byline-text strong {
+      color: var(--color-navy);
+      font-weight: 500;
+    }
+
+    .byline-meta {
+      font-size: 13px;
+      color: var(--color-slate);
+    }
+
+    /* ARTICLE CONTENT */
+    .article-container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .article-container p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      color: var(--color-graphite);
+    }
+
+    .article-container h2 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--color-navy);
+      margin-top: 36px;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .article-container h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .article-container em {
+      color: var(--color-teal);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .article-container strong {
+      color: var(--color-navy);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--color-mist);
+      border-top: 1px solid #E5E7EB;
+      padding: 40px 24px;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+
+    .footer-section h3 {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-navy);
+      margin-bottom: 12px;
+    }
+
+    .footer-section p {
+      font-size: 13px;
+      color: var(--color-slate);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .footer-section a {
+      color: var(--color-teal);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-section a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-divider {
+      border-top: 1px solid #E5E7EB;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--color-slate);
+    }
+
+    .copyright {
+      color: var(--color-slate);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .header-container {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero-section h1 {
+        font-size: 28px;
+      }
+
+      .article-container p {
+        font-size: 14px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Acuity <em>Sourcing</em></a>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <div class="nav-links">
-      <a href="/how-i-work">What I Do</a>
-      <a href="/work">Work</a>
-      <a href="/writing/software-expensive" class="current">Writing</a>
-      <a href="/about">About</a>
-      <a href="/#contact">Contact</a>
+  <header>
+    <div class="header-container">
+      <a href="https://www.acuitysourcing.com/" class="logo">Acuity Sourcing</a>
+      <nav>
+        <a href="https://www.acuitysourcing.com/how-i-work">What I Do</a>
+        <a href="https://www.acuitysourcing.com/work">Work</a>
+        <a href="https://www.acuitysourcing.com/writing">Writing</a>
+        <a href="https://www.acuitysourcing.com/about">About</a>
+        <a href="https://www.acuitysourcing.com/#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-</nav>
+  </header>
 
-<section class="article-header">
-  <div class="article-header-inner">
-    <div class="meta">Essay</div>
-    <h1>Your software isn't expensive because the code is heavy. <em>It's expensive because you don't know how to buy it.</em></h1>
+  <section class="hero-section">
+    <div class="hero-divider"></div>
+    <h1>Your software isn't expensive because the code is heavy. It's expensive because you don't know how to buy it.</h1>
+    
     <div class="byline">
-      <strong>Jake Vigneri</strong><br>
-      April 2026 · 8 minute read
+      <div>
+        <div class="byline-text"><strong>Jake Vigneri</strong></div>
+        <div class="byline-meta">Founder, Acuity Sourcing</div>
+      </div>
+      <div class="byline-meta">April 2026 · 8 minute read</div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="article">
-  <div class="article-inner">
+  <article class="article-container">
     <p>With most commodities, the price makes sense. You can look up the spot price of steel, the cost of a barrel of oil, the wholesale price of corn. The materials are public, the margins are known, and the number on the quote bears some relationship to the cost of the thing. When you buy a car or a house, you can compare it to the one next door.</p>
 
     <p>Software can't be compared that way. One vendor sells by the seat. Another sells by the token. A third charges for compute consumption, or named users, or modules, or some combination of all of it. The unit of measure is different from product to product, which means there is no clean way to line two quotes up next to each other and know which is the better deal.</p>
@@ -220,10 +323,27 @@
     <p>Software has no knowable cost basis. Benchmarks only tell you so much, and they're only available for some products. The right price for your organization is the one your requirements justify, your alternatives anchor, and your budget supports. You can only know that price if you've done the work to define those things first.</p>
 
     <p>The work is not glamorous and it is not easy to do well. But it is the work that determines whether you end up with the software you need at a price that reflects it, or with something else.</p>
-  </div>
-</section>
+  </article>
 
-<footer>© 2026 Acuity Sourcing</footer>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Acuity</h3>
+          <p>Twenty years of enterprise software negotiation. We help organizations buy better.</p>
+          <p><a href="https://www.acuitysourcing.com/about">Learn more about our approach</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Let's talk</h3>
+          <p>If you're evaluating software and want independent counsel, we'd like to hear from you.</p>
+          <p><a href="mailto:jake@acuitysourcing.com">jake@acuitysourcing.com</a></p>
+        </div>
+      </div>
+      <div class="footer-divider">
+        <p class="copyright">© 2026 Acuity Sourcing</p>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
