@@ -376,6 +376,93 @@
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
         }
 
+        /* Writing Section */
+        .writing-section {
+            max-width: 1200px;
+            margin: 8rem auto;
+            padding: 0 3rem;
+        }
+
+        .writing-section h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .writing-section > p {
+            font-size: 0.95rem;
+            color: var(--slate);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+
+        .article-card {
+            background: var(--paper);
+            border: 1px solid var(--border-light);
+            padding: 2.5rem;
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .article-card:hover {
+            border-color: var(--teal);
+            box-shadow: 0 8px 24px rgba(26, 149, 153, 0.12);
+        }
+
+        .article-card h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--slate);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-description {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-link {
+            display: inline-block;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .article-link::after {
+            content: ' →';
+            transition: transform 0.2s;
+        }
+
+        .article-card:hover .article-link {
+            transform: translateX(4px);
+        }
+
         /* Footer */
         footer {
             max-width: 1200px;
@@ -456,7 +543,7 @@
                 <a href="#services">Services</a>
                 <a href="#methodology">How We Work</a>
                 <a href="acuity-portfolio.html">Portfolio</a>
-                <a href="acuity-writing.html">Writing</a>
+                <a href="#writing">Writing</a>
                 <a href="mailto:jake@acuitysourcing.com">Contact</a>
             </nav>
         </div>
@@ -548,6 +635,19 @@
         <h2>A major software decision is in front of you.</h2>
         <p>Let's talk about what that looks like.</p>
         <a href="mailto:jake@acuitysourcing.com?subject=Let%27s%20talk%20about%20software%20sourcing" class="cta-button">Get in touch</a>
+    </section>
+
+    <!-- Writing -->
+    <section class="writing-section" id="writing">
+        <h2>Writing</h2>
+        <p>Essays on software procurement, vendor strategy, and the structural forces that make enterprise deals work.</p>
+        
+        <article class="article-card">
+            <h3>Software Pricing: The Three Taxes You're Already Paying</h3>
+            <p class="article-meta">On vendor pricing strategy and where software costs actually come from</p>
+            <p class="article-description">Enterprise software pricing is not transparent. Vendors build layered pricing structures that exploit information asymmetry: the Requirements Tax (you don't know what you need), the Attention Tax (you can't evaluate everything), and the Leverage Tax (you're always negotiating from weakness). This essay breaks down how each tax works and where the real negotiating leverage actually lives.</p>
+            <a href="writing/software-expensive.html" class="article-link">Read the essay</a>
+        </article>
     </section>
 
     <!-- Footer -->
