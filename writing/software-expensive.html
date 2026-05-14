@@ -204,11 +204,23 @@
             padding: 3rem;
             border-top: 1px solid var(--border-light);
             text-align: center;
+            color: var(--slate);
+            font-size: 0.9rem;
         }
 
-        footer p {
+        footer a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p:last-child {
             font-size: 0.85rem;
-            color: var(--slate);
+            margin-top: 1rem;
         }
 
         /* Mobile */
@@ -362,7 +374,8 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Acuity Sourcing. All rights reserved.</p>
+        <p>Acuity Sourcing | <a href="mailto:jake@acuitysourcing.com">jake@acuitysourcing.com</a> | <a href="https://linkedin.com/in/jakevig">LinkedIn</a></p>
+        <p>20+ years across GE Vernova, BlackRock, Federal Reserve Bank of NY, Moody's Analytics, Macmillan Publishers</p>
     </footer>
 
     <script>
