@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Acuity Sourcing</title>
+    <title>Your software isn't expensive because the code is heavy — Acuity Sourcing</title>
+    <meta name="description" content="An essay on software pricing, the three taxes buyers pay, and where real negotiating leverage actually lives.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -83,519 +84,239 @@
             transition: color 0.2s;
         }
 
-        .nav a:hover {
+        .nav a:hover,
+        .nav a.current {
             color: var(--teal);
         }
 
-        /* Hero */
-        .portfolio-hero {
-            max-width: 1200px;
-            margin: 3rem auto;
+        /* Article header */
+        .article-header {
+            max-width: 760px;
+            margin: 4rem auto 3rem;
             padding: 0 3rem;
-            position: relative;
         }
 
-        .portfolio-hero::before {
+        .article-header::before {
             content: '';
             display: block;
-            width: 40px;
+            width: 60px;
             height: 3px;
             background: var(--gradient);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
         }
 
-        .portfolio-hero h1 {
-            font-family: var(--serif);
-            font-size: 2.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--navy);
-        }
-
-        .portfolio-hero p {
-            font-size: 1rem;
-            color: var(--slate);
-            max-width: 700px;
-        }
-
-        /* Service Section */
-        .service-section {
-            max-width: 1200px;
-            margin: 5rem auto;
-            padding: 0 3rem;
-        }
-
-        .service-section h2 {
-            font-family: var(--serif);
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--navy);
-        }
-
-        .service-section p {
-            font-size: 0.95rem;
-            color: var(--slate);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-        }
-
-        .service-section p strong {
-            color: var(--graphite);
-            font-weight: 600;
-        }
-
-        /* Case Study */
-        .case-study {
-            background: var(--paper);
-            border: 1px solid var(--border-light);
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            border-radius: 4px;
-            position: relative;
-        }
-
-        .case-study::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--gradient);
-            border-radius: 4px 0 0 4px;
-        }
-
-        .case-study-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .case-study h3 {
-            font-family: var(--serif);
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 0.25rem;
-        }
-
-        .case-study-meta {
-            font-size: 0.85rem;
-            color: var(--slate);
-            font-style: italic;
-        }
-
-        .case-study-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: var(--mist);
-            color: var(--teal);
-            padding: 0.3rem 0.8rem;
+        .article-eyebrow {
             font-size: 0.75rem;
-            border-radius: 2px;
+            font-weight: 500;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .article-header h1 {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.75rem;
+        }
+
+        .article-header h1 em {
+            font-style: italic;
+            color: var(--graphite);
             font-weight: 500;
         }
 
-        /* Case Study Content */
-        .case-study-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-bottom: 1.5rem;
-            align-items: start;
-        }
-
-        .case-study-section {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .case-study-section h4 {
-            font-family: var(--serif);
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--navy);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.75rem;
-            margin-top: 0;
-        }
-
-        .case-study-section p {
-            font-size: 0.95rem;
-            color: var(--slate);
-            line-height: 1.65;
-            margin-bottom: 0;
-            flex-grow: 1;
-        }
-
-        /* Results Highlight */
-        .results-highlight {
-            grid-column: 1 / -1;
-            background: var(--mist);
-            padding: 1.5rem;
-            border-left: 4px solid var(--green);
-            margin-top: 1rem;
-        }
-
-        .results-highlight h4 {
-            margin-top: 0;
-            color: var(--navy);
-        }
-
-        .result-item {
-            font-size: 0.95rem;
-            color: var(--slate);
-            margin-bottom: 0.75rem;
-        }
-
-        .result-item strong {
-            color: var(--navy);
-            font-weight: 600;
-        }
-
-        /* Pattern/Takeaway */
-        .pattern {
-            padding: 1.5rem;
-            background: var(--mist);
-            border-left: 4px solid var(--slate);
-            margin-top: 1rem;
-        }
-
-        .pattern p {
+        .article-byline {
             font-size: 0.9rem;
             color: var(--slate);
-            line-height: 1.65;
-            font-style: italic;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1.25rem;
         }
 
-        .pattern strong {
+        .article-byline strong {
             color: var(--navy);
             font-weight: 600;
-            font-style: normal;
+        }
+
+        /* Article body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 3rem 6rem;
+        }
+
+        .article-body p {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--graphite);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body h2 {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.3;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.25px;
+        }
+
+        /* Back link */
+        .back-link {
+            max-width: 680px;
+            margin: 0 auto 6rem;
+            padding: 0 3rem;
+        }
+
+        .back-link a {
+            font-size: 0.85rem;
+            color: var(--teal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--teal);
+            padding-bottom: 2px;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            color: var(--navy);
+            border-color: var(--navy);
         }
 
         /* Footer */
         footer {
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 3rem;
-            text-align: center;
-            color: var(--slate);
-            font-size: 0.9rem;
             border-top: 1px solid var(--border-light);
-            margin-top: 8rem;
-            background: var(--mist);
+            text-align: center;
         }
 
-        footer a {
-            color: var(--teal);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        footer p:last-child {
+        footer p {
             font-size: 0.85rem;
-            margin-top: 1rem;
+            color: var(--slate);
         }
 
-        /* Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
             header {
-                padding: 1.5rem 2rem;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .nav {
-                gap: 1.5rem;
-                font-size: 0.85rem;
-            }
-
-            .portfolio-hero h1 {
-                font-size: 1.75rem;
-            }
-
-            .service-section,
-            .case-study {
-                padding: 0 1.5rem;
-            }
-
-            .case-study {
                 padding: 1.5rem;
             }
 
-            .case-study::before {
-                width: 100%;
-                height: 4px;
-                border-radius: 4px 4px 0 0;
+            .nav {
+                gap: 1.25rem;
             }
 
-            .case-study-header {
-                flex-direction: column;
-                gap: 1rem;
+            .article-header {
+                padding: 0 1.5rem;
+                margin: 2.5rem auto 2rem;
             }
 
-            .case-study-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .article-header h1 {
+                font-size: 1.85rem;
             }
 
-            .results-highlight {
-                grid-column: 1;
+            .article-body {
+                padding: 0 1.5rem 4rem;
+            }
+
+            .article-body p {
+                font-size: 1.05rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.35rem;
+                margin-top: 2.5rem;
+            }
+
+            .back-link {
+                padding: 0 1.5rem;
+                margin-bottom: 4rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+
     <header>
         <div class="header-content">
-            <a href="https://www.acuitysourcing.com/" class="logo">Acuity Sourcing</a>
+            <a href="/" class="logo">Acuity Sourcing</a>
             <nav class="nav">
-                <a href="https://www.acuitysourcing.com/#services">Services</a>
-                <a href="https://www.acuitysourcing.com/#methodology">How I Work</a>
-                <a href="https://www.acuitysourcing.com/acuity-portfolio">Portfolio</a>
-                <a href="https://www.acuitysourcing.com/#writing">Writing</a>
+                <a href="/#services">Services</a>
+                <a href="/#methodology">How I Work</a>
+                <a href="/acuity-portfolio">Portfolio</a>
+                <a href="/writing/" class="current">Writing</a>
+                <a href="/about">About</a>
                 <a href="mailto:jake@acuitysourcing.com">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="portfolio-hero">
-        <h1>Portfolio</h1>
-        <p>Five engagements across industrial, financial services, and regulated sectors. Each organized by the service that made the difference.</p>
-    </section>
-
-    <!-- Advisory Section -->
-    <section class="service-section" id="advisory">
-        <h2>Advisory</h2>
-        <p><strong>When you're buying or transitioning platforms.</strong> Your organization is making a major software decision and the wrong vendor move costs millions. We bring deal strategy and negotiation support.</p>
-
-        <!-- Case Study 1 -->
-        <div class="case-study">
-            <div class="case-study-header">
-                <div>
-                    <h3>Engineering Software Portfolio Separation During Major Corporate Spin-Off</h3>
-                    <p class="case-study-meta">Industrial Energy / Clean Technology</p>
-                </div>
-                <div class="case-study-tags">
-                    <span class="tag">Strategic Sourcing</span>
-                    <span class="tag">Contract Negotiation</span>
-                    <span class="tag">Category Strategy</span>
-                </div>
-            </div>
-
-            <div class="case-study-content">
-                <div class="case-study-section">
-                    <h4>Problem</h4>
-                    <p>A global industrial company undergoing a multi-entity corporate spin-off faced immediate risk of operational disruption across its engineering software portfolio—PLM, CAD, and simulation tools essential to its core business. Hundreds of vendor agreements were legally tethered to the legacy parent company, exposing the newly independent entity to costly transfer fees, assignment clauses, and potential loss of entitlements at the moment of separation.</p>
-                </div>
-
-                <div class="case-study-section">
-                    <h4>Actions</h4>
-                    <p>Developed and executed a $100M global engineering software category strategy tailored to the newly independent company's mission. Led proactive renegotiation of 40+ master agreements in advance of the spin-off deadline to secure continuity terms and eliminate transfer risk. Applied Lean methodology to stakeholder dashboards, iterating on metrics based on continuous feedback to keep senior leadership informed throughout the transition. Conducted full rationalization of inherited license entitlements.</p>
-                </div>
-            </div>
-
-            <div class="results-highlight">
-                <h4>Results</h4>
-                <div class="result-item"><strong>$34M</strong> in separation and transfer costs mitigated</div>
-                <div class="result-item">Secured <strong>uninterrupted access</strong> to mission-critical engineering software on day one of independence</div>
-                <div class="result-item">Delivered <strong>$100M category strategy</strong> aligned with company's electrification and decarbonization mandate</div>
-            </div>
-
-            <div class="pattern">
-                <p><strong>Pattern:</strong> When you have months of runway before a deadline, proactive renegotiation against the clock pressure vendors operate under moves a price no amount of negotiation skill will touch. Time becomes leverage.</p>
-            </div>
-        </div>
-
-        <!-- Case Study 2 -->
-        <div class="case-study">
-            <div class="case-study-header">
-                <div>
-                    <h3>Strategic Sourcing and Supplier Integration Support for Enterprise Investment Platform Expansion</h3>
-                    <p class="case-study-meta">Financial Services / Asset Management</p>
-                </div>
-                <div class="case-study-tags">
-                    <span class="tag">Strategic Sourcing</span>
-                    <span class="tag">Supplier Management</span>
-                    <span class="tag">M&A Integration</span>
-                </div>
-            </div>
-
-            <div class="case-study-content">
-                <div class="case-study-section">
-                    <h4>Problem</h4>
-                    <p>A major asset management firm was expanding its flagship technology platform through a series of acquisitions and integrations—adding fixed income auction functionality, derivatives intelligence, and private asset management capabilities. M&A-driven supplier onboarding was slow and inconsistent. The existing sourcing function lacked the structure to operate at the pace the product roadmap demanded.</p>
-                </div>
-
-                <div class="case-study-section">
-                    <h4>Actions</h4>
-                    <p>Led strategic sourcing for $85M in annual platform spend, deploying a dual-track approach: direct negotiation to drive cost savings alongside demand management controls to eliminate low-value spend. Diagnosed M&A integration inefficiencies by mapping supplier workflows against commodity profiles and redesigned the onboarding process. Built and delivered RFx training for the global sourcing team covering $800M in contracts. Introduced scorecard-based supplier management and quarterly business reviews to shift relationships from reactive to performance-accountable.</p>
-                </div>
-            </div>
-
-            <div class="results-highlight">
-                <h4>Results</h4>
-                <div class="result-item"><strong>$30M</strong> in total value captured—<strong>$20M</strong> in negotiated savings and <strong>$10M</strong> through demand management controls</div>
-                <div class="result-item">Accelerated supplier onboarding speed by <strong>60%</strong>, directly enabling faster platform integrations</div>
-                <div class="result-item">Established <strong>repeatable sourcing and supplier management operating model</strong> used across the global team</div>
-            </div>
-
-            <div class="pattern">
-                <p><strong>Pattern:</strong> Internal friction (between Sourcing, IT, and business units) is often the actual constraint, not external negotiation. Speed comes from aligning internal stakeholders on a single definition of value, then using that alignment to compress the vendor conversation.</p>
-            </div>
+    <section class="article-header">
+        <div class="article-eyebrow">Essay</div>
+        <h1>Your software isn't expensive because the code is heavy. <em>It's expensive because you don't know how to buy it.</em></h1>
+        <div class="article-byline">
+            <strong>Jake Vigneri</strong> &middot; April 2026 &middot; 8 minute read
         </div>
     </section>
 
-    <!-- License Intelligence Section -->
-    <section class="service-section" id="license">
-        <h2>License Intelligence</h2>
-        <p><strong>When you have compliance or audit exposure.</strong> You've discovered unknown license exposure, faced an audit notice, or inherited an unclear software estate. We deliver forensic work on what you actually own and where the risk is.</p>
+    <article class="article-body">
+        <p>With most commodities, the price makes sense. You can look up the spot price of steel, the cost of a barrel of oil, the wholesale price of corn. The materials are public, the margins are known, and the number on the quote bears some relationship to the cost of the thing. When you buy a car or a house, you can compare it to the one next door.</p>
 
-        <!-- Case Study 4 -->
-        <div class="case-study">
-            <div class="case-study-header">
-                <div>
-                    <h3>Software Compliance Infrastructure Build and Audit Risk Mitigation for Financial Data Firm</h3>
-                    <p class="case-study-meta">Financial Services / Data & Analytics</p>
-                </div>
-                <div class="case-study-tags">
-                    <span class="tag">Software Asset Management</span>
-                    <span class="tag">Compliance</span>
-                    <span class="tag">Contract Negotiation</span>
-                </div>
-            </div>
+        <p>Software can't be compared that way. One vendor sells by the seat. Another sells by the token. A third charges for compute consumption, or named users, or modules, or some combination of all of it. The unit of measure is different from product to product, which means there is no clean way to line two quotes up next to each other and know which is the better deal.</p>
 
-            <div class="case-study-content">
-                <div class="case-study-section">
-                    <h4>Problem</h4>
-                    <p>Following a significant software audit that resulted in substantial fines, a financial data and analytics firm's leadership recognized it had no structured software asset management capability. $500M+ in software assets were untracked, leaving the organization exposed to ongoing compliance and financial risk.</p>
-                </div>
+        <p>It gets worse from there. The cost to produce the first copy of a piece of software is enormous. The cost to produce the second copy is nearly zero. Most of what you're paying for isn't the code, it's human labor, and the cost of human labor varies enormously depending on who's doing it and where. The same feature built by an onshore engineering team and the same feature built by an offshore team are priced very differently, and the buyer rarely has visibility into which one is on the other end of the invoice. The vendor's margins are some of the highest in any industry, typically between seventy and ninety percent, and most of what's in the price is the cost of servicing the account: the flights, the dinners, the sales engineer hours, the custom demos, the executive sponsorship. That cost is real. It's also bigger than most buyers realize.</p>
 
-                <div class="case-study-section">
-                    <h4>Actions</h4>
-                    <p>Served as IT Sourcing subject matter expert throughout ITAM tool evaluation and implementation, steering a joint sourcing-IT initiative to select and deploy a platform capable of bringing the full software asset base under active management. Remained post-implementation as the Microsoft CMDB specialist to ensure the governance infrastructure held. Served as global lead for Microsoft Enterprise Agreement renegotiation, applying market intelligence and usage analysis to drive meaningful cost reduction during international expansion and M&A activity.</p>
-                </div>
-            </div>
+        <p>This is not a claim that software is overpriced. Whether a given tool is worth its price depends on what your organization needs it to do, and that calculation is yours to make. The claim is narrower: when buyers treat software like a commodity, comparing quotes and negotiating on price, they miss the fact that what they're buying is not a product. It's a service. And the cost of that service is largely determined by the buyer's own behavior.</p>
 
-            <div class="results-highlight">
-                <h4>Results</h4>
-                <div class="result-item">Proactively mitigated <strong>$60M</strong> in audit risk by establishing ITAM governance covering <strong>$500M+</strong> in software assets</div>
-                <div class="result-item">Reduced annual Microsoft Enterprise Agreement spend by <strong>$2M</strong> (<strong>15%</strong> reduction)</div>
-                <div class="result-item">Transformed compliance posture from <strong>reactive to structured</strong>, directly supporting leadership mandate to strengthen internal controls</div>
-            </div>
+        <p>Twenty years of negotiating enterprise software on the buyer's side has shown me the same pattern at every company I've worked with. The deal goes badly in a predictable way, and it almost always goes badly for the same three reasons. I've started to think of them as taxes, because most of what drives them is invisible to the buyer and shows up in the final price anyway.</p>
 
-            <div class="pattern">
-                <p><strong>Pattern:</strong> Organizations discover they have unknown license exposure only after an audit event. The cost to build compliance infrastructure before an audit shows up is a rounding error compared to the cost of remediating it after.</p>
-            </div>
-        </div>
-    </section>
+        <h2>The Requirements Tax</h2>
 
-    <!-- Enablement Section -->
-    <section class="service-section" id="enablement">
-        <h2>Enablement</h2>
-        <p><strong>When you're building internal capability.</strong> You want the discipline and methodology inside your team rather than purchased per-engagement. Training, coaching, and curriculum work that installs a repeatable sourcing operating system.</p>
+        <p>Most enterprise software purchases begin with a business user who has been tasked with a problem they haven't yet defined. Somebody on the leadership team has decided the company needs a new tool, or a better process, or a replacement for something that isn't working. The business user is sent off to figure out what to buy. They watch a demo, like what they see, and start the buying process. Somewhere between the first demo and the signed contract, somebody has to translate vague intent into something the vendor can scope and price. If the buying organization doesn't do that work, the vendor does it for them.</p>
 
-        <!-- Case Study 3 -->
-        <div class="case-study">
-            <div class="case-study-header">
-                <div>
-                    <h3>Fintech and Emerging Technology Sourcing Program Build for Central Banking Institution</h3>
-                    <p class="case-study-meta">Financial Services / Public Sector</p>
-                </div>
-                <div class="case-study-tags">
-                    <span class="tag">Strategic Sourcing</span>
-                    <span class="tag">Program Development</span>
-                    <span class="tag">Team Development</span>
-                </div>
-            </div>
+        <p>This is the Requirements Tax. Every hour the vendor spends figuring out what you actually need is an hour they're going to recoup, either in the license cost, in the implementation fees, or in the first renewal. Discovery isn't free. It's deferred. The buyer who arrives with a vague sense of what the product should do is paying the vendor to define it for them, and that work will show up in the invoice one way or another.</p>
 
-            <div class="case-study-content">
-                <div class="case-study-section">
-                    <h4>Problem</h4>
-                    <p>A central banking institution was investing in fintech and emerging technologies—robotic process automation, natural language processing, next-generation payment and settlement infrastructure—but lacked a structured sourcing program to support new technology acquisition at scale. Procurement operated without real-time visibility tools, and the sourcing team needed both process infrastructure and talent development to operate effectively within a complex, policy-intensive environment.</p>
-                </div>
+        <p>The alternative is not complicated. It's also not easy. It requires the buyer to do the work of defining the problem before they engage the vendor. What does the team need the software to do? What does success look like? What are the must-haves, what are the nice-to-haves, what is out of scope? This is the work most buyers skip because they don't have the time, the training, or the patience. It's also the work that determines everything downstream.</p>
 
-                <div class="case-study-section">
-                    <h4>Actions</h4>
-                    <p>Built and executed sourcing strategies for $200M+ in new fintech and emerging technology acquisitions, grounding each strategy in rigorous market research rather than vendor-led evaluations. Designed KPI-based reporting dashboards providing real-time project tracking and demand planning visibility. After completing the institution's leadership program, restructured team staffing to put junior staff on administrative tasks and senior staff on complex deal mentorship. Designed and delivered bi-annual procurement policy training for end users across the organization using case-study-driven curriculum with embedded policy violations for participants to identify and resolve.</p>
-                </div>
-            </div>
+        <h2>The Attention Tax</h2>
 
-            <div class="results-highlight">
-                <h4>Results</h4>
-                <div class="result-item">Delivered structured sourcing coverage for <strong>$200M+</strong> in new spend across fintech and emerging technologies</div>
-                <div class="result-item">Built process infrastructure—dashboards, sourcing strategies, team capability—for a function that had previously operated ad hoc</div>
-                <div class="result-item">Procurement policy training reduced sourcing exceptions and policy override requests by <strong>30%</strong> in the year following program launch, eliminating post-purchase compliance review cycles</div>
-                <div class="result-item">Sourcing work in RPA and NLP laid the commercial groundwork for what the institution later formalized as a flagship technology innovation center</div>
-            </div>
+        <p>The second tax is quieter but expensive. Once a buyer has engaged a vendor, the vendor assigns people to the deal. A sales and a sales engineer. Sometimes a solutions architect, a proposal writer, a technical account manager. These people are not free. They are a meaningful portion of the vendor's cost of sale, and the more of their time a deal consumes, the more of their time has to be priced in.</p>
 
-            <div class="pattern">
-                <p><strong>Pattern:</strong> Organizations teach policy through lecture; policy literacy actually comes from decision-making under constraint. Case-study-driven training that embeds policy in real sourcing scenarios produces better retention and operational behavior change than any policy manual.</p>
-            </div>
-        </div>
+        <p>A buying team that wants another demo, a custom proof of concept, a walkthrough with the security team, a follow-up call to answer questions the first call didn't cover, is generating cost. None of that cost is on the quote as a line item. All of it is baked into the number. When a vendor's pricing feels padded, it is often because the deal has taken three times as long as the vendor budgeted for it, and the vendor is recovering the overrun from the buyer who caused it.</p>
 
-        <!-- Case Study 5 -->
-        <div class="case-study">
-            <div class="case-study-header">
-                <div>
-                    <h3>Procure-to-Pay System Implementation and IT Financial Governance Build for Global Publisher</h3>
-                    <p class="case-study-meta">Media & Publishing / Digital Transformation</p>
-                </div>
-                <div class="case-study-tags">
-                    <span class="tag">Strategic Sourcing</span>
-                    <span class="tag">Procurement Operations</span>
-                    <span class="tag">Financial Reporting</span>
-                </div>
-            </div>
+        <p>The implication is not that buyers should avoid engaging the vendor. It's that every engagement has a cost, and that cost gets paid by the buyer regardless of whether anyone tracks it. A disciplined buyer knows what they need before they ask for the demo, and knows what they're trying to learn before they take the call.</p>
 
-            <div class="case-study-content">
-                <div class="case-study-section">
-                    <h4>Problem</h4>
-                    <p>A global publishing company undergoing significant digital transformation and organizational restructure was operating without a functioning procure-to-pay system or structured IT financial reporting. The $13M IT department budget was tracked but not allocated in a way that supported decision-making across business units.</p>
-                </div>
+        <h2>The Leverage Tax</h2>
 
-                <div class="case-study-section">
-                    <h4>Actions</h4>
-                    <p>Designed and implemented a Procure-to-Pay system that brought spend visibility and payment controls to the IT function—enabling advanced spend analytics and accelerating the payment cycle. Built financial reporting infrastructure for the $13M IT budget, translating department costs into business-unit allocations that supported the company's restructure from geographic to global divisions. Conceived and launched an Eco-Friendly IT Asset Disposal program, converting end-of-life hardware from an unmanaged liability into a structured, cost-generating process with environmental compliance built in.</p>
-                </div>
-            </div>
+        <p>The third tax is the one most experienced buyers recognize and still pay. Information moves around in a software deal, in both directions, and every piece of information the vendor collects is a piece the vendor can price against.</p>
 
-            <div class="results-highlight">
-                <h4>Results</h4>
-                <div class="result-item">Generated <strong>$1M</strong> in cost reduction in the first year through Procure-to-Pay implementation</div>
-                <div class="result-item">Delivered <strong>$250K</strong> in annual recurring savings through the asset disposal program</div>
-                <div class="result-item">Provided finance team with IT cost allocation reporting that supported a major organizational restructuring—including the creation of two global business divisions</div>
-            </div>
+        <p>The clearest example is budget. A vendor who knows the buyer has a hundred thousand dollars set aside will structure a quote that comes in just under the number. A vendor who knows the buyer's fiscal year ends in September will structure a close date around it. A vendor who knows the buyer's current system is failing will price the replacement at the cost of the failure rather than the cost of the alternative. None of these are dishonest tactics. They are rational responses to the information the buyer shared.</p>
 
-            <div class="pattern">
-                <p><strong>Pattern:</strong> Sourcing discipline and process design are two different capabilities. Building P2P from scratch requires both: the sourcing rigor to control spend and the operational discipline to make the system stick. Organizations that skip the sourcing piece end up with process theater.</p>
-            </div>
-        </div>
-    </section>
+        <p>Most disclosure isn't strategic. It happens because someone on the buying side is trying to be helpful, or is trying to accelerate the process, or doesn't understand what the vendor will do with the information once they have it. The leverage is gone before the negotiation starts, because the negotiation is over by the time price is on the table.</p>
 
-    <!-- Footer -->
+        <p>The discipline is not silence. A software deal involves real collaboration, both internally and with the vendor, and nothing gets built without information moving around. The discipline is that the buying organization agrees on what information is shared, when, and by whom. When sales, IT, legal, and finance are all sharing their own pieces with the vendor on their own timeline, the vendor assembles a picture the buying organization hasn't even assembled for itself. That's how leverage leaks out. Not through strategic concessions, but through uncoordinated disclosure.</p>
+
+        <h2>What the three taxes have in common</h2>
+
+        <p>The Requirements Tax, the Attention Tax, and the Leverage Tax are all versions of the same thing. They are the cost of the buyer not having done the internal work before engaging the vendor. They show up in the price because the vendor, faced with a buyer who doesn't know what they want, hasn't budgeted properly, and is disclosing freely, prices accordingly.</p>
+
+        <p>Software has no knowable cost basis. Benchmarks only tell you so much, and they're only available for some products. The right price for your organization is the one your requirements justify, your alternatives anchor, and your budget supports. You can only know that price if you've done the work to define those things first.</p>
+
+        <p>The work is not glamorous and it is not easy to do well. But it is the work that determines whether you end up with the software you need at a price that reflects it, or with something else.</p>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to Writing</a>
+    </div>
+
     <footer>
-        <p>Acuity Sourcing | <a href="mailto:jake@acuitysourcing.com">jake@acuitysourcing.com</a> | <a href="https://linkedin.com/in/jakevig">LinkedIn</a></p>
-        <p>20 years across GE Vernova, BlackRock, Federal Reserve Bank of NY, Moody's Analytics, Macmillan Publishers</p>
+        <p>&copy; 2026 Acuity Sourcing. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
