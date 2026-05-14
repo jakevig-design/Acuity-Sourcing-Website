@@ -83,7 +83,8 @@
             transition: color 0.2s;
         }
 
-        .nav a:hover {
+        .nav a:hover,
+        .nav a.current {
             color: var(--teal);
         }
 
@@ -109,20 +110,28 @@
             margin: 4rem auto 6rem;
         }
 
+        .about-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
         .about h1 {
             font-family: var(--serif);
             font-size: 2.5rem;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-bottom: 0;
             color: var(--navy);
+            line-height: 1.15;
         }
 
         .about-image {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
+            width: 180px;
+            height: 180px;
             border-radius: 4px;
-            margin-bottom: 2rem;
+            object-fit: cover;
+            flex-shrink: 0;
             display: block;
         }
 
@@ -223,9 +232,20 @@
                 margin: 2rem auto 4rem;
             }
 
+            .about-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.25rem;
+                margin-bottom: 2rem;
+            }
+
+            .about-image {
+                width: 140px;
+                height: 140px;
+            }
+
             .about h1 {
                 font-size: 1.75rem;
-                margin-bottom: 1.5rem;
             }
 
             .about-content {
@@ -252,9 +272,9 @@
             <nav class="nav" id="navMenu">
                 <a href="/#services">Services</a>
                 <a href="/#methodology">How I Work</a>
-                <a href="acuity-portfolio.html">Portfolio</a>
+                <a href="/acuity-portfolio">Portfolio</a>
                 <a href="/writing">Writing</a>
-                <a href="about.html">About</a>
+                <a href="/about" class="current">About</a>
                 <a href="mailto:jake@acuitysourcing.com">Contact</a>
             </nav>
         </div>
@@ -262,8 +282,10 @@
 
     <!-- About Content -->
     <section class="about container">
-        <h1>About Jake</h1>
-        <img src="jake.png" alt="Jake Vigneri" class="about-image">
+        <div class="about-header">
+            <img src="/jake-vigneri.png" alt="Jake Vigneri" class="about-image">
+            <h1>About Jake</h1>
+        </div>
         <div class="about-content">
             <p>I grew up in Pennsylvania Dutch country, which in practice meant I grew up around cars. Volkswagens specifically. My first was a 1973 VW Bus, and my weekends as a teenager were spent at car shows, selling merchandise, and planning a future in the automotive industry.</p>
 
