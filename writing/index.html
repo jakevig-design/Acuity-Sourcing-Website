@@ -88,6 +88,16 @@
             color: var(--teal);
         }
 
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--slate);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+        }
+
         /* Hero */
         .writing-hero {
             max-width: 1200px;
@@ -200,8 +210,44 @@
                 padding: 1.5rem;
             }
 
+            .header-content {
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+                flex-shrink: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
             .nav {
-                gap: 1.25rem;
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--paper);
+                border-bottom: 1px solid var(--border-light);
+                padding: 1rem 1.5rem;
+                z-index: 99;
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .nav a {
+                padding: 0.75rem 0;
+                font-size: 0.9rem;
+                white-space: normal;
             }
 
             .writing-hero {
@@ -229,7 +275,8 @@
     <header>
         <div class="header-content">
             <a href="/" class="logo">Acuity Sourcing</a>
-            <nav class="nav">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+            <nav class="nav" id="navMenu">
                 <a href="/#services">Services</a>
                 <a href="/#methodology">How I Work</a>
                 <a href="/acuity-portfolio">Portfolio</a>
@@ -270,6 +317,15 @@
     <footer>
         <p>&copy; 2026 Acuity Sourcing. All rights reserved.</p>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navMenu.classList.remove('active'));
+        });
+    </script>
 
 </body>
 </html>
