@@ -249,8 +249,10 @@
         1. Drop the article HTML file into this writing/ folder (e.g. my-new-essay.html).
         2. Copy one of the <article class="article-card"> blocks below.
         3. Update the title, meta, description, and href.
-        4. The href omits the .html extension (vercel.json has cleanUrls: true).
-           File: my-new-essay.html  →  href="my-new-essay"
+        4. Use an absolute href and omit .html — vercel.json has
+           cleanUrls: true and trailingSlash: false, so relative hrefs
+           from /writing resolve to root.
+           File: my-new-essay.html  →  href="/writing/my-new-essay"
         Newest article goes at the top.
     -->
     <section class="article-list">
@@ -259,7 +261,7 @@
             <h2>Your software isn't expensive because the code is heavy. <em>It's expensive because you don't know how to buy it.</em></h2>
             <p class="article-meta">On vendor pricing strategy and where software costs actually come from</p>
             <p class="article-description">Enterprise software pricing is not transparent. Vendors build layered pricing structures that exploit information asymmetry: the Requirements Tax (you don't know what you need), the Attention Tax (you can't evaluate everything), and the Leverage Tax (you're always negotiating from weakness). This essay breaks down how each tax works and where the real negotiating leverage actually lives.</p>
-            <a href="software-expensive" class="article-link">Read essay →</a>
+            <a href="/writing/software-expensive" class="article-link">Read essay →</a>
         </article>
 
     </section>
