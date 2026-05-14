@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing - Acuity Sourcing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #131F53;
+            --teal: #1A9599;
+            --green: #7EBD41;
+            --paper: #FFFFFF;
+            --mist: #F5F6F8;
+            --slate: #6B7280;
+            --graphite: #1F2937;
+            --border-light: #E5E7EB;
+            --serif: 'Source Serif Pro', Georgia, serif;
+            --sans: 'Inter', Helvetica, sans-serif;
+            --gradient: linear-gradient(90deg, #131F53 0%, #1A9599 55%, #7EBD41 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--graphite);
+            line-height: 1.65;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 3rem;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--paper);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--slate);
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--teal);
+        }
+
+        /* Hero */
+        .writing-hero {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 3rem;
+            position: relative;
+        }
+
+        .writing-hero::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            margin-bottom: 1.5rem;
+        }
+
+        .writing-hero h1 {
+            font-family: var(--serif);
+            font-size: 2.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .writing-hero p {
+            font-size: 1.05rem;
+            color: var(--slate);
+            max-width: 700px;
+        }
+
+        /* Article list */
+        .article-list {
+            max-width: 1200px;
+            margin: 4rem auto 8rem;
+            padding: 0 3rem;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: var(--paper);
+            border: 1px solid var(--border-light);
+            padding: 2.5rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .article-card:hover {
+            border-color: var(--teal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(19, 31, 83, 0.06);
+        }
+
+        .article-card h2 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .article-card .article-meta {
+            font-size: 0.8rem;
+            color: var(--slate);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .article-card .article-description {
+            font-size: 0.95rem;
+            color: var(--graphite);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .article-card .article-link {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--teal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--teal);
+            padding-bottom: 2px;
+        }
+
+        .article-card .article-link:hover {
+            color: var(--navy);
+            border-color: var(--navy);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--slate);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+            }
+
+            .nav {
+                gap: 1.25rem;
+            }
+
+            .writing-hero {
+                padding: 0 1.5rem;
+                margin: 2rem auto;
+            }
+
+            .writing-hero h1 {
+                font-size: 2rem;
+            }
+
+            .article-list {
+                padding: 0 1.5rem;
+                margin: 2.5rem auto 4rem;
+            }
+
+            .article-card {
+                padding: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <a href="https://www.acuitysourcing.com/" class="logo">Acuity Sourcing</a>
+            <nav class="nav">
+                <a href="https://www.acuitysourcing.com/#services">Services</a>
+                <a href="https://www.acuitysourcing.com/#methodology">How I Work</a>
+                <a href="https://www.acuitysourcing.com/acuity-portfolio">Portfolio</a>
+                <a href="https://www.acuitysourcing.com/#writing">Writing</a>
+                <a href="https://www.acuitysourcing.com/about">About</a>
+                <a href="mailto:jake@acuitysourcing.com">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="writing-hero">
+        <h1>Writing</h1>
+        <p>Essays on software procurement, vendor strategy, and the structural forces that make enterprise deals work.</p>
+    </section>
+
+    <!--
+        To add a new article:
+        1. Drop the article HTML file into this writing/ folder.
+        2. Copy one of the <article class="article-card"> blocks below.
+        3. Update the title, meta, description, and href.
+        Newest article goes at the top.
+    -->
+    <section class="article-list">
+
+        <article class="article-card">
+            <h2>Software Pricing: The Three Taxes You're Already Paying</h2>
+            <p class="article-meta">On vendor pricing strategy and where software costs actually come from</p>
+            <p class="article-description">Enterprise software pricing is not transparent. Vendors build layered pricing structures that exploit information asymmetry: the Requirements Tax (you don't know what you need), the Attention Tax (you can't evaluate everything), and the Leverage Tax (you're always negotiating from weakness). This essay breaks down how each tax works and where the real negotiating leverage actually lives.</p>
+            <a href="software-expensive.html" class="article-link">Read essay →</a>
+        </article>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Acuity Sourcing. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
