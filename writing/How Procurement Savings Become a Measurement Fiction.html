@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Procurement Savings Become a Measurement Fiction — Acuity Sourcing</title>
+    <meta name="description" content="An essay on how procurement teams measure savings and why the numbers often don't add up.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #131F53;
+            --teal: #1A9599;
+            --green: #7EBD41;
+            --paper: #FFFFFF;
+            --mist: #F5F6F8;
+            --slate: #6B7280;
+            --graphite: #1F2937;
+            --border-light: #E5E7EB;
+            --serif: 'Source Serif Pro', Georgia, serif;
+            --sans: 'Inter', Helvetica, sans-serif;
+            --gradient: linear-gradient(90deg, #131F53 0%, #1A9599 55%, #7EBD41 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--graphite);
+            line-height: 1.65;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 3rem;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--paper);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--slate);
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover,
+        .nav a.current {
+            color: var(--teal);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--slate);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        /* Article header */
+        .article-header {
+            max-width: 760px;
+            margin: 4rem auto 3rem;
+            padding: 0 3rem;
+        }
+
+        .article-header::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .article-header h1 {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.75rem;
+        }
+
+        .article-header h1 em {
+            font-style: italic;
+            color: var(--graphite);
+            font-weight: 500;
+        }
+
+        .article-byline {
+            font-size: 0.9rem;
+            color: var(--slate);
+            border-top: 1px solid var(--border-light);
+            padding-top: 1.25rem;
+        }
+
+        .article-byline strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Article body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 3rem 6rem;
+        }
+
+        .article-body p {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--graphite);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body h2 {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.3;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.25px;
+        }
+
+        /* Back link */
+        .back-link {
+            max-width: 680px;
+            margin: 0 auto 6rem;
+            padding: 0 3rem;
+        }
+
+        .back-link a {
+            font-size: 0.85rem;
+            color: var(--teal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--teal);
+            padding-bottom: 2px;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            color: var(--navy);
+            border-color: var(--navy);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p:last-child {
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+            }
+
+            .header-content {
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+                flex-shrink: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--paper);
+                border-bottom: 1px solid var(--border-light);
+                padding: 1rem 1.5rem;
+                z-index: 99;
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .nav a {
+                padding: 0.75rem 0;
+                font-size: 0.9rem;
+                white-space: normal;
+            }
+
+            .article-header {
+                padding: 0 1.5rem;
+                margin: 2.5rem auto 2rem;
+            }
+
+            .article-header h1 {
+                font-size: 1.85rem;
+            }
+
+            .article-body {
+                padding: 0 1.5rem 4rem;
+            }
+
+            .article-body p {
+                font-size: 1.05rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.35rem;
+                margin-top: 2.5rem;
+            }
+
+            .back-link {
+                padding: 0 1.5rem;
+                margin-bottom: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Acuity Sourcing</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+            <nav class="nav" id="navMenu">
+                <a href="/#services">Services</a>
+                <a href="/#methodology">How I Work</a>
+                <a href="/acuity-portfolio">Portfolio</a>
+                <a href="/writing" class="current">Writing</a>
+                <a href="/about">About</a>
+                <a href="mailto:jake@acuitysourcing.com">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="article-header">
+        <div class="article-eyebrow">Essay</div>
+        <h1>How Procurement Savings Become a <em>Measurement Fiction</em></h1>
+        <div class="article-byline">
+            <strong>Jake Vigneri</strong> &middot; April 2026 &middot; 10 minute read
+        </div>
+    </section>
+
+    <article class="article-body">
+        <p>The gap between reported value and actual value starts long before the negotiation table.</p>
+
+        <p>There is a number that appears in nearly every procurement review deck. It sits in a clean table, usually in the second or third slide, under a header like Value Delivered or Cost Avoidance Summary. It represents the gap between what a vendor first quoted and what your company ultimately paid. It returns value to the organization, contributes to the team's operating cost, and validates sourcing strategy.</p>
+
+        <p>It is also, in most cases, a fiction.</p>
+
+        <p>Not fraud. Not incompetence. A structural fiction: one that everyone involved understands implicitly and that no one has much incentive to dismantle. The vendor knows it. The procurement team knows it. The CFO suspects it and accepts it anyway because the alternative is a conversation no one has a framework for.</p>
+
+        <p>This is an article about that conversation.</p>
+
+        <h2>The Metric That Runs on Phantom Data</h2>
+
+        <p>The standard unit of procurement success is savings. Specifically, it is the difference between a vendor's opening price and the price you signed. If a vendor quotes $400,000 and you negotiate to $340,000, your procurement team reports $60,000 in savings. That number goes into a dashboard. It gets compared to prior years. It informs the team's operating cost and resource allocation.</p>
+
+        <p>Here is the problem: the $400,000 was never real.</p>
+
+        <p>Enterprise software pricing is not like commodity pricing, where a market rate exists independent of any particular buyer. It is relational pricing: which is a polite way of saying it is whatever the vendor believes you will pay, set high enough to create room for a negotiation that feels like a win. The opening quote is not an honest assessment of value. It is an anchor, deliberately placed. The discount is not a concession. It is a feature of the sales process, designed in advance, available to virtually every buyer who asks for it.</p>
+
+        <p>When you measure savings against that anchor, you are not measuring performance against reality. You are measuring performance against a number the vendor invented for you.</p>
+
+        <p>The scorecard is built on the other side's inputs. No one in finance would accept that logic in any other context.</p>
+
+        <h2>How the Anchor Gets Set</h2>
+
+        <p>To understand why this happens, you have to understand how enterprise software deals actually begin: not how procurement policy says they begin, but how they begin in practice.</p>
+
+        <p>A vendor's sales team identifies a target account. They research the organization, map the stakeholders, and find the person with the most acute pain: usually a business unit leader, a VP of Operations, a head of Finance, occasionally a CEO who attended a conference and saw a demo. They reach that person through a warm introduction, a well-timed cold email, or increasingly, a piece of content designed to make the pain feel urgent.</p>
+
+        <p>Then they run a process.</p>
+
+        <p>It is a good process. It has been refined over hundreds of deals. It involves discovery calls that feel like consultations, demos that show the product at its best, reference customers who are prepared to take calls, and a business case template the vendor helpfully provides. By the time a formal quote arrives, the business unit has already made a psychological decision. They have presented the solution internally. They have a champion on the vendor side. They have told their team this is the direction they are going.</p>
+
+        <p>At this point (and this is the critical moment), procurement gets involved.</p>
+
+        <p>They receive a scope that has already been defined. A vendor relationship that has already been built. A business unit that is already committed. And a quote that has been calibrated to all of the above.</p>
+
+        <p>The negotiation that follows is real, in the sense that words are exchanged and the number moves. But the leverage that would have produced a genuinely different outcome (a different scope, a different structure, a different vendor entirely) is gone. It evaporated the moment the business unit fell in love with the product before anyone asked what it should cost.</p>
+
+        <p>This is the car dealership problem. Everyone understands not to go for the test drive before you have negotiated the price. You check the invoice cost, you know your walk-away number, you arrive with a position. The test drive is how you confirm a decision you have already made on rational grounds, not how you make it. Enterprise software buyers do the test drive first. Every time.</p>
+
+        <h2>Why This Persists: Five Structural Reasons</h2>
+
+        <p>The natural question is why sophisticated organizations allow this to happen repeatedly. The answer is not negligence. It is that the system produces outcomes that are acceptable to everyone involved, and the true cost is distributed in ways that are difficult to see.</p>
+
+        <p><strong>The savings metric rewards the symptom, not the cure.</strong> A procurement team that gets involved early (before the vendor quote, before the demo, before the business unit is committed) will produce deals that come in at or near fair value from the start. The opening quote will be lower because the vendor understands they are dealing with a prepared buyer. The final price will be close to the opening price because there was less room built in. Result: small reported savings. By the conventional metric, a poor performance. A procurement team that gets involved late (after the business unit is committed, after the vendor has run their full sales process) will negotiate from an inflated baseline and report large savings. Result: large reported savings. By the conventional metric, an excellent performance. The incentive structure selects for late engagement. This is not a management failure. It is a measurement failure.</p>
+
+        <p><strong>The vendor's sales process is engineered to get commitment before scrutiny.</strong> Enterprise sales methodology is sophisticated and well-funded. Frameworks like MEDDIC, Challenger Sale, and Command of the Message are explicitly designed to establish economic justification, identify the decision-maker, and secure internal commitment before procurement introduces friction. The vendor sales team is trained, coached, and compensated to complete this sequence. The buying organization has no equivalent playbook. There is extensive literature on how to sell enterprise software. There is almost nothing on how to buy it.</p>
+
+        <p><strong>The business unit believes it knows how to buy.</strong> Business unit leaders buy things in their personal lives. They have bought cars, negotiated leases, shopped for mortgages. They carry that intuition into software decisions and it fails them, because software is a categorically different commercial environment. The vendor has done this deal five hundred times. The buyer has done it once, maybe twice. The information asymmetry is not marginal: it is structural. But it is invisible to the person experiencing it, because competence in one commercial context feels like competence in all of them.</p>
+
+        <p><strong>The counterfactual is unpublishable.</strong> The true savings from early procurement engagement cannot be reported, because they exist only as a comparison to a quote that was never made. If procurement is involved before the vendor knows how committed the business unit is, the vendor may never table the inflated number. The deal comes in clean. There is nothing to compare it to. The CFO sees a number, approves a budget, and the value of the process that produced that number is invisible. You cannot put a counterfactual in a savings report. So the work that prevents the problem goes unmeasured, and the work that responds to the problem gets all the credit.</p>
+
+        <p><strong>The cost never aggregates into a crisis.</strong> Software overpayment is a chronic condition, not an acute one. Individual deals are too small to constitute a scandal. Auto-escalation clauses of eight to twelve percent compound quietly over multi-year terms. Shelfware accumulates gradually. By the time a portfolio is meaningfully oversized, the people who signed the original contracts have moved on, the vendor is deeply embedded, and switching costs exceed the cost of staying. So you renew. It is not a crisis. It is a slow tax. And like most slow taxes, it is easier to pay than to fight.</p>
+
+        <h2>What It Actually Costs</h2>
+
+        <p>The absence of a crisis does not mean the absence of cost. It means the cost is diffuse enough to absorb.</p>
+
+        <p>Consider what the inflated anchor produces over a typical software contract lifecycle. A deal signed at $340,000 against a fair market value of $280,000 (a gap of $60,000 in year one) carries that overrun forward. An eight percent annual escalation clause, standard in most enterprise software agreements, applies to the inflated base. By year three, the cumulative overpayment is not $60,000. It is substantially more, and the escalation continues.</p>
+
+        <p>Now consider that the average mid-size enterprise manages between forty and two hundred software contracts simultaneously. The overpayment is not one deal. It is a portfolio condition.</p>
+
+        <p>There is a second cost that does not appear on any invoice: the terms you did not get. Early engagement produces not just better pricing but better contracts (favorable termination rights, audit provisions, performance SLAs, data portability clauses, price protection on renewals). These are negotiating chips that are available before commitment and almost unavailable after it. The business value of a well-structured contract over a five-year term is real, and it is entirely invisible in a savings report.</p>
+
+        <h2>The Conversation No One Is Having</h2>
+
+        <p>The procurement profession is not unaware of this dynamic. Senior practitioners understand it. The phrase get procurement a seat at the table has been repeated at every sourcing conference for twenty years.</p>
+
+        <p>What the profession has not done is diagnose why that seat keeps not materializing, and build something that addresses the actual mechanism.</p>
+
+        <p>The standard prescription is organizational: get procurement involved earlier, change the policy, require sign-off before vendor engagement. This fails in practice for reasons that are also structural. There is no natural trigger in most organizations for this is now a procurement event. Projects begin as explorations, become evaluations, become commitments, and quietly become budget line items. By the time a formal process starts, the informal process has already concluded.</p>
+
+        <p>There is also a Catch-22 that no policy resolves: you need a price to build a budget case, and the only way to get a price is to talk to the vendor. The moment you talk to the vendor, you are in their process. There is no neutral mechanism for getting pricing information without initiating a sales relationship. So the business unit does what is rational given the available tools (they engage the vendor, get a number, build a case, get attached, and call procurement when the paperwork needs to be done).</p>
+
+        <p>The problem is not that people are making bad decisions. It is that they do not have the tools to make better ones before the leverage is gone.</p>
+
+        <h2>A Framework for What Early Looks Like</h2>
+
+        <p>If the goal is to recover leverage (not at the negotiation table, but before the vendor knows the deal is real), the intervention has to happen at three specific moments.</p>
+
+        <p><strong>Before vendor contact: define the position.</strong> Before any vendor conversation begins, the buying team needs four things in writing: what problem they are actually solving, what success looks like in measurable terms, what they are willing to pay for that outcome, and what happens if they do not buy. Most organizations skip this entirely. The result is that the vendor's discovery process defines the scope, the vendor's business case template defines the value, and the buyer arrives at negotiation without a position. A written requirements definition, produced internally before any demo, changes the commercial dynamic. It signals a prepared buyer. Prepared buyers get different quotes.</p>
+
+        <p><strong>Before commitment: do the test drive last.</strong> The sequence matters more than the participants. The organizational question (which team is involved) is less important than the order of operations. Price and terms should be negotiated, or at minimum anchored, before the business unit has publicly committed to a direction. Once commitment is visible (once the internal presentation has been made, once the champion relationship is established, once the team is excited), the negotiating position has already been conceded. Run the commercial process in parallel with the evaluation, not after it. Negotiate on a hypothetical before you negotiate on a decision.</p>
+
+        <p><strong>Before signing: stress-test the exit.</strong> The most expensive clause in most software contracts is not the price. It is the absence of a defined exit. Switching costs (data migration, retraining, integration rebuilding) are the mechanism by which vendors convert a good deal into a permanent one. A contract that does not define termination rights, data portability, and transition assistance is a contract that prices in lock-in on the vendor's behalf. The question to ask before signing is not are we happy with the price. It is: what does it cost us to leave in year three, and have we negotiated terms that make that cost acceptable. If you cannot answer that question, you have not finished the deal.</p>
+
+        <h2>The Reframe</h2>
+
+        <p>The problem with how most organizations measure procurement is that it is a lagging indicator masquerading as a performance metric. Savings reported against an inflated opening quote tells you how well your team plays the game the vendor designed. It tells you nothing about whether you got a good deal.</p>
+
+        <p>A better measurement framework asks different questions:</p>
+
+        <p>Did we engage before the vendor knew we were committed? Did we produce a written position before the first demo? Did we negotiate in parallel with evaluation, not after it? Did we define the exit before we signed? Did we pay within the range of fair market value for what we actually needed?</p>
+
+        <p>These questions do not produce a savings number. They produce a process audit. That is harder to put in a slide deck. It is also a more honest account of whether your organization is managing software spend or just managing the appearance of it.</p>
+
+        <p>The vendor is very good at their job. They have a playbook, a process, and a team that executes it on every deal. The question is not whether you can out-negotiate them at the table. You probably cannot, not at that stage. The question is whether you show up prepared enough that the table never gets set on their terms.</p>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to Writing</a>
+    </div>
+
+    <footer>
+        <p>Acuity Sourcing | <a href="mailto:jake@acuitysourcing.com">jake@acuitysourcing.com</a> | <a href="https://linkedin.com/in/jakevig">LinkedIn</a></p>
+        <p>20+ years across GE Vernova, BlackRock, Federal Reserve Bank of NY, Moody's Analytics, Macmillan Publishers</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navMenu.classList.remove('active'));
+        });
+    </script>
+
+</body>
+</html>
