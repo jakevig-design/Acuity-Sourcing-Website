@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Acuity Sourcing</title>
+<meta name="description" content="Software sourcing advisory: renewals, RFPs, contract negotiation, license reconciliation, and business case development. Engagement scales to the problem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #131F53;
+    --teal: #1A9599;
+    --teal-dim: #157678;
+    --green: #7EBD41;
+    --paper: #FFFFFF;
+    --mist: #F5F6F8;
+    --slate: #6B7280;
+    --graphite: #1F2937;
+    --rule: #E5E7EB;
+    --border-light: #E5E7EB;
+    --serif: 'Source Serif Pro', Georgia, serif;
+    --sans: 'Inter', Helvetica, sans-serif;
+    --gradient: linear-gradient(90deg, #131F53 0%, #1A9599 55%, #7EBD41 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--graphite);
+    line-height: 1.55;
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Site header (matches index.html) */
+  header {
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+  .nav {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav a {
+    text-decoration: none;
+    color: var(--slate);
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav a:hover,
+  .nav a.current {
+    color: var(--teal);
+  }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--slate);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  /* Site footer */
+  .site-footer {
+    padding: 3rem;
+    text-align: center;
+    color: var(--slate);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-light);
+  }
+  .site-footer a {
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .site-footer a:hover { text-decoration: underline; }
+  .site-footer p:last-child {
+    font-size: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  /* Page layout */
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .gradient-bar {
+    height: 4px;
+    background: var(--gradient);
+    width: 100%;
+  }
+
+  /* HERO */
+  .services-hero {
+    padding: 80px 0 64px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: var(--teal);
+  }
+  .services-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin-bottom: 32px;
+  }
+  .services-lede {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.1vw, 24px);
+    line-height: 1.5;
+    color: var(--graphite);
+    max-width: 760px;
+  }
+  .services-lede em {
+    font-style: italic;
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  /* GROUPS */
+  .group {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .group-marker {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 1;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .group-category {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .group-title {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .group-summary {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+    color: var(--slate);
+    line-height: 1.55;
+    margin-bottom: 36px;
+    max-width: 680px;
+  }
+  .service-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .service-item {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .service-item .arrow {
+    color: var(--teal);
+    font-size: 16px;
+    line-height: 1.4;
+    transition: transform 0.2s ease;
+  }
+  .service-item:hover .arrow {
+    transform: translateX(4px);
+  }
+  .service-trigger {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .service-detail {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* Closing CTA */
+  .closing {
+    padding: 96px 0 120px;
+    text-align: left;
+  }
+  .closing h2 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 18px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .closing-sub {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+    color: var(--slate);
+    line-height: 1.55;
+    margin-bottom: 36px;
+    max-width: 640px;
+  }
+  .closing-btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background: var(--navy);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--navy);
+    transition: all 0.25s ease;
+  }
+  .closing-btn:hover {
+    background: var(--gradient);
+    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(19,31,83,0.18);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    header { padding: 1.5rem; }
+    .menu-toggle { display: block; }
+    .nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--border-light);
+      padding: 1rem 1.5rem;
+      z-index: 99;
+    }
+    .nav.active { display: flex; }
+    .nav a {
+      padding: 0.75rem 0;
+      font-size: 0.9rem;
+      white-space: normal;
+    }
+    .logo { font-size: 1.25rem; flex-shrink: 0; }
+    .container { padding: 0 24px; }
+
+    .services-hero { padding: 56px 0 40px; }
+    .group {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 56px 0;
+    }
+    .group-marker { font-size: 48px; }
+    .closing { padding: 64px 0 80px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top gradient bar -->
+<div class="gradient-bar"></div>
+
+<!-- Site header -->
+<header>
+    <div class="header-content">
+        <a href="/" class="logo">Acuity Sourcing</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <nav class="nav" id="navMenu">
+            <a href="/#methodology">Method</a>
+            <a href="/services" class="current" aria-current="page">Services</a>
+            <a href="/writing">Writing</a>
+            <a href="/acuity-portfolio">Portfolio</a>
+            <a href="/about">About</a>
+            <a href="mailto:jake@acuitysourcing.com">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- HERO -->
+    <section class="services-hero">
+        <div class="eyebrow">Services</div>
+        <h1>Sourcing help, when you actually need it.</h1>
+        <p class="services-lede">
+            Software sourcing advisory across the full range — the eight-figure renegotiation that decides the year, and the inherited contract nobody else wants to touch. <em>Both deals matter. Both get the same attention.</em>
+        </p>
+    </section>
+
+    <!-- GROUP 01 -->
+    <section class="group">
+        <div class="group-marker">01</div>
+        <div>
+            <div class="group-category">Active deals</div>
+            <h2 class="group-title">Run a deal</h2>
+            <p class="group-summary">There's a transaction on the table — a new purchase, a competitive process, a contract heading to signature. The work is time-bound and the outcome is measurable.</p>
+
+            <div class="service-items">
+                <div class="service-item">
+                    <span class="arrow">→</span>
+                    <div>
+                        <div class="service-trigger">A competitive bid needs to be run</div>
+                        <div class="service-detail">RFP structure, vendor evaluation criteria, quote normalization, and scoring methodology that survives stakeholder scrutiny.</div>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="arrow">→</span>
+                    <div>
+                        <div class="service-trigger">A deal needs a second set of eyes</div>
+                        <div class="service-detail">Contract redline, commercial term review, negotiation position development — independent perspective before you sign.</div>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="arrow">→</span>
+                    <div>
+                        <div class="service-trigger">A business case needs building</div>
+                        <div class="service-detail">TCO modeling, alternative analysis, and approval support to get spend through finance, IT, and the executive team.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GROUP 02 -->
+    <section class="group">
+        <div class="group-marker">02</div>
+        <div>
+            <div class="group-category">Portfolio</div>
+            <h2 class="group-title">Optimize what you have</h2>
+            <p class="group-summary">The deal already happened. Now the question is whether the agreement still fits — pricing, terms, scope, vendor count — and how to fix it on the next cycle.</p>
+
+            <div class="service-items">
+                <div class="service-item">
+                    <span class="arrow">→</span>
+                    <div>
+                        <div class="service-trigger">A renewal is 6–18 months out</div>
+                        <div class="service-detail">Position development, benchmarking, leverage strategy. Renewal outcomes are decided long before the quote arrives.</div>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="arrow">→</span>
+                    <div>
+                        <div class="service-trigger">A master agreement needs renegotiation</div>
+                        <div class="service-detail">Post-M&A integration, business model change, or terms that have drifted out of alignment with how you actually use the product.</div>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="arrow">→</span>
+                    <div>
+                        <div class="service-trigger">Multiple contracts with the same vendor</div>
+                        <div class="service-detail">Consolidation into a single optimized agreement — better commercial terms, cleaner administration, fewer renewal cycles to manage.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GROUP 03 -->
+    <section class="group">
+        <div class="group-marker">03</div>
+        <div>
+            <div class="group-category">Foundation</div>
+            <h2 class="group-title">Know what you own</h2>
+            <p class="group-summary">Before optimization comes visibility. License entitlements, usage reality, and audit exposure are the foundation everything else builds on.</p>
+
+            <div class="service-items">
+                <div class="service-item">
+                    <span class="arrow">→</span>
+                    <div>
+                        <div class="service-trigger">Nobody knows what software they own</div>
+                        <div class="service-detail">Entitlement audit, audit defense, and license reconciliation — reconcile what you bought against what you're using before a vendor does it for you.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="closing">
+        <h2>Not sure which one fits?</h2>
+        <p class="closing-sub">Most engagements start with a 30-minute conversation about the deal, the deadline, and the constraint. No pitch, no proposal — just whether I can help.</p>
+        <a href="mailto:jake@acuitysourcing.com" class="closing-btn">Start a conversation</a>
+    </section>
+
+</div>
+
+<!-- Site footer -->
+<footer class="site-footer">
+    <p>Acuity Sourcing | <a href="mailto:jake@acuitysourcing.com">jake@acuitysourcing.com</a> | <a href="https://linkedin.com/in/jakevig">LinkedIn</a></p>
+    <p>20+ years across GE Vernova, BlackRock, Federal Reserve Bank of NY, Moody's Analytics, Macmillan Publishers</p>
+</footer>
+
+<!-- Bottom gradient bar -->
+<div class="gradient-bar"></div>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+</script>
+
+</body>
+</html>
