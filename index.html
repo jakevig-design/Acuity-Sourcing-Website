@@ -747,7 +747,6 @@
             <a href="/" class="logo">Acuity Sourcing</a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
             <nav class="nav" id="navMenu">
-                <a href="#services">Services</a>
                 <a href="#methodology">Method</a>
                 <a href="/acuity-portfolio">Portfolio</a>
                 <a href="/writing">Writing</a>
@@ -763,50 +762,102 @@
         <p>While you're browsing, the vendor is already working. They're mapping your organizational structure, profiling your budget, and figuring out who they need to get it to close. Meanwhile the business case is vague, the requirements are soft, and nobody internally has agreed on what success looks like. By the time procurement gets involved, you've lost on both sides of the table.</p>
     </section>
 
-    <!-- What I Do -->
-    <section class="what-i-do wide-container">
-        <h2>What I Do</h2>
-        <p>Same thesis. Two ways to deliver it. Hands-on advisory and the software version of the same methodology.</p>
-        <div class="workstreams">
-            <div class="workstream">
-                <h3>Acuity Consulting</h3>
-                <div class="workstream-subtitle">Hands-on advisory for the work before the vendor shows up</div>
-                <p>Business cases, requirements development, competitive bid design, executive alignment, and negotiation support for the deals where getting it right actually matters.</p>
-                <p>For: teams running a specific high-stakes purchase, renewal, or competitive bid, who need a senior practitioner involved from day one.</p>
-                <a href="#methodology">How I work →</a>
-            </div>
-
-            <div class="workstream">
-                <h3>Pario Software</h3>
-                <div class="workstream-subtitle">The productized version of the same methodology</div>
-                <p>Structured scoping, requirements, vendor research, and a defensible business case, ready to walk into your boss's office with. Built for teams that need the work done but don't have access to someone like me.</p>
-                <p>For: business users evaluating a software purchase who want to get it right before anyone writes a check.</p>
-                <a href="https://planwithpario.com/">Try Pario →</a>
-            </div>
-        </div>
+    <!-- Why Acuity Exists (elevated treatment) -->
+    <section class="why-acuity container" style="background: #F5F6F8; padding: 5rem 3rem;">
+        <h2 style="font-size: 2.5rem;">Why Acuity Exists</h2>
+        <p>Twenty years ago I took a job in procurement by accident and ended up spending my career negotiating enterprise software, at GE Vernova, GE Company, BlackRock, the Federal Reserve Bank of New York, Moody's, and Macmillan. Trading platforms, OEM licensing, audit defense, post-M&A consolidation, the works.</p>
+        <p>Business users found a tool they wanted, started talking to the vendor before anyone had written a real business case, and by the time procurement showed up the deal was already half-built, on the vendor's terms. The requirements were soft. The stakeholders weren't aligned. The budget was either a guess or already disclosed. And the vendor had been running the play since the first demo.</p>
+        <p>I built Acuity because that pattern is fixable, and almost nobody is fixing it. The work that matters happens before the vendor ever sees a procurement person, and most organizations don't have anyone doing that work. Acuity is a boutique shop focused on exactly that: requirements, business cases, and the internal alignment that makes everything downstream actually work.</p>
+        <a href="/about">Read the full story →</a>
     </section>
 
-    <!-- Services -->
-    <section class="services wide-container" id="services">
-        <h2>Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Advisory</h3>
-                <div class="service-trigger">When you're buying or transitioning platforms</div>
-                <p>Your organization is making a major software decision. A competitive bid, a master agreement renegotiation, a post-acquisition platform consolidation. The wrong move costs millions. We bring deal strategy and negotiation support from inside the room.</p>
+    <!-- Work with Acuity -->
+    <style>
+        #work-with-acuity .advisory-cta,
+        #work-with-acuity .pario-cta {
+            transition: all 0.25s ease;
+        }
+        #work-with-acuity .advisory-cta:hover {
+            background: #131F53;
+            border-color: #131F53;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(19,31,83,0.18);
+        }
+        #work-with-acuity .pario-cta:hover {
+            background: #4F8A1F;
+            border-color: #4F8A1F;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(126,189,65,0.25);
+        }
+        @media (max-width: 768px) {
+            #work-with-acuity { padding: 64px 0 !important; }
+            #work-with-acuity .work-card { padding: 28px 24px !important; }
+        }
+    </style>
+    <section id="work-with-acuity" style="padding: 96px 0; background: #FFFFFF; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB;">
+        <div style="max-width: 980px; margin: 0 auto; padding: 0 32px;">
+
+            <!-- Section header -->
+            <div style="margin-bottom: 48px;">
+                <p style="font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: #1A9599; font-weight: 600; margin: 0 0 18px;">Two ways to work together</p>
+                <h2 style="font-family: 'Source Serif Pro', Georgia, serif; font-size: clamp(32px, 4.5vw, 48px); font-weight: 600; color: #131F53; margin: 0 0 16px; letter-spacing: -0.02em; line-height: 1.1;">Work with Acuity.</h2>
+                <p style="font-family: 'Source Serif Pro', Georgia, serif; font-size: clamp(18px, 2vw, 22px); color: #1F2937; font-weight: 400; line-height: 1.5; max-width: 640px; margin: 0;">Same thesis, different delivery. For the deals that move the needle, there is Acuity Advisory. For the buyer who needs the methodology without the consultant, there is Pario.</p>
             </div>
 
-            <div class="service-card">
-                <h3>License Intelligence</h3>
-                <div class="service-trigger">When you have compliance or audit exposure</div>
-                <p>You've discovered unknown license exposure, faced an audit notice, or inherited an unclear software estate after an acquisition. You need forensic work on what you actually own and where the risk is.</p>
+            <!-- Acuity Advisory card -->
+            <div class="work-card" style="background: #FFFFFF; border: 1px solid #E5E7EB; border-left: 4px solid #131F53; border-radius: 8px; padding: 36px 40px; margin-bottom: 24px;">
+                <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 12px;">
+                    <h3 style="font-family: 'Source Serif Pro', Georgia, serif; font-size: 28px; font-weight: 600; color: #131F53; margin: 0; letter-spacing: -0.01em;">Acuity Advisory</h3>
+                    <span style="font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #1A9599; font-weight: 600;">Consulting · Senior-led</span>
+                </div>
+                <p style="font-size: 16px; color: #1F2937; line-height: 1.65; margin: 0 0 28px; max-width: 720px;">For decisions where the wrong move costs millions, the timeline matters, and the room needs someone who has done this before. Three specialties, all built on the same playbook.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 28px;">
+
+                    <div style="background: #F5F6F8; border-radius: 6px; padding: 20px 22px;">
+                        <h4 style="font-family: 'Source Serif Pro', Georgia, serif; font-size: 17px; font-weight: 600; color: #131F53; margin: 0 0 6px;">Advisory</h4>
+                        <p style="font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #1A9599; font-weight: 600; margin: 0 0 12px;">Major decision in front of you</p>
+                        <p style="font-size: 14px; color: #1F2937; line-height: 1.55; margin: 0;">Deal strategy and negotiation support from inside the room.</p>
+                    </div>
+
+                    <div style="background: #F5F6F8; border-radius: 6px; padding: 20px 22px;">
+                        <h4 style="font-family: 'Source Serif Pro', Georgia, serif; font-size: 17px; font-weight: 600; color: #131F53; margin: 0 0 6px;">License Intelligence</h4>
+                        <p style="font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #1A9599; font-weight: 600; margin: 0 0 12px;">Compliance or audit exposure</p>
+                        <p style="font-size: 14px; color: #1F2937; line-height: 1.55; margin: 0;">Forensic work on what you own and where the risk is.</p>
+                    </div>
+
+                    <div style="background: #F5F6F8; border-radius: 6px; padding: 20px 22px;">
+                        <h4 style="font-family: 'Source Serif Pro', Georgia, serif; font-size: 17px; font-weight: 600; color: #131F53; margin: 0 0 6px;">Enablement</h4>
+                        <p style="font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #1A9599; font-weight: 600; margin: 0 0 12px;">Building internal capability</p>
+                        <p style="font-size: 14px; color: #1F2937; line-height: 1.55; margin: 0;">Training and coaching that installs the methodology in your team.</p>
+                    </div>
+
+                </div>
+
+                <div style="padding-top: 20px; border-top: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                    <p style="font-size: 14px; color: #6B7280; font-style: italic; margin: 0;">All three sit on the same method.</p>
+                    <a href="mailto:jake@acuitysourcing.com" class="advisory-cta" style="display: inline-block; padding: 12px 28px; background: #1A9599; color: #FFFFFF; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid #1A9599;">
+                        Start a conversation
+                    </a>
+                </div>
             </div>
 
-            <div class="service-card">
-                <h3>Enablement</h3>
-                <div class="service-trigger">When you're building internal capability</div>
-                <p>You want the discipline and methodology inside your team rather than purchased per-engagement. Training, coaching, and curriculum work that installs a repeatable sourcing operating system.</p>
+            <!-- Pario card -->
+            <div class="work-card" style="background: #FFFFFF; border: 1px solid #E5E7EB; border-left: 4px solid #7EBD41; border-radius: 8px; padding: 36px 40px;">
+                <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 12px;">
+                    <h3 style="font-family: 'Source Serif Pro', Georgia, serif; font-size: 28px; font-weight: 600; color: #131F53; margin: 0; letter-spacing: -0.01em;">Pario</h3>
+                    <span style="font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #4F8A1F; font-weight: 600;">Software · Self-serve</span>
+                </div>
+                <p style="font-size: 16px; color: #1F2937; line-height: 1.65; margin: 0 0 28px; max-width: 720px;">For the decision that does not justify a consulting engagement but still deserves a real method. Pario walks the buyer through scoping, requirements, vendor research, and a business case in about 30 minutes. The methodology, productized.</p>
+
+                <div style="padding-top: 20px; border-top: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                    <p style="font-size: 14px; color: #6B7280; font-style: italic; margin: 0;">Built for departmental software purchases.</p>
+                    <a href="https://planwithpario.com" class="pario-cta" style="display: inline-block; padding: 12px 28px; background: #7EBD41; color: #FFFFFF; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid #7EBD41;">
+                        See Pario →
+                    </a>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -840,33 +891,13 @@
     <section id="writing" class="writing-section wide-container">
         <h2>Writing</h2>
         <p>Essays on software procurement, vendor strategy, and the structural forces that make enterprise deals work.</p>
-        
+
         <article class="article-card">
             <h3>The Three Taxes of Software Pricing</h3>
             <p class="article-meta">On vendor pricing strategy and where software costs actually come from</p>
             <p class="article-description">Enterprise software pricing is not transparent. Vendors build layered pricing structures that exploit information asymmetry: the Requirements Tax (you don't know what you need), the Attention Tax (you can't evaluate everything), and the Leverage Tax (you're always negotiating from weakness). This essay breaks down how each tax works and where the real negotiating leverage actually lives.</p>
             <a href="/writing" class="article-link">Read essay →</a>
         </article>
-    </section>
-
-    <!-- Why Acuity Exists -->
-    <section class="why-acuity container">
-        <h2>Why Acuity Exists</h2>
-        <p>Twenty years ago I took a job in procurement by accident and ended up spending my career negotiating enterprise software, at GE Vernova, GE Company, BlackRock, the Federal Reserve Bank of New York, Moody's, and Macmillan. Trading platforms, OEM licensing, audit defense, post-M&A consolidation, the works.</p>
-        <p>Business users found a tool they wanted, started talking to the vendor before anyone had written a real business case, and by the time procurement showed up the deal was already half-built, on the vendor's terms. The requirements were soft. The stakeholders weren't aligned. The budget was either a guess or already disclosed. And the vendor had been running the play since the first demo.</p>
-        <p>I built Acuity because that pattern is fixable, and almost nobody is fixing it. The work that matters happens before the vendor ever sees a procurement person, and most organizations don't have anyone doing that work. Acuity is a boutique shop focused on exactly that: requirements, business cases, and the internal alignment that makes everything downstream actually work.</p>
-        <a href="/about">Read the full story →</a>
-    </section>
-
-    <!-- Pario -->
-    <section class="pario-section container">
-        <h2>Pario</h2>
-        <p><strong>The software I built because my consulting can't scale.</strong></p>
-        <p>After twenty years of watching the same failure mode show up at every company, I realized the real problem wasn't that buyers were making bad deals. It was that most buyers never had access to someone who'd seen how these deals actually go. By the time a sourcing professional got involved, the damage was done. By the time a consultant like me got involved, the deal was usually too big and the client too sophisticated for the work to scale.</p>
-        <p>Pario is the software version of the first thing I do on any consulting engagement. You describe the problem. It walks you through a structured scoping conversation, helps you build requirements that hold up commercially, researches the vendor landscape, and generates a business case you can walk into your boss's office with. In thirty minutes you'll have done more rigorous work than most enterprise teams do in a month of internal meetings.</p>
-        <p>It's not a procurement tool. It's not an RFP platform. It's a preparation tool for the people who will actually have to live with the software they buy, and it's built on the same methodology I use when I'm doing the work myself.</p>
-        <p><strong>Currently in private beta.</strong></p>
-        <a href="https://planwithpario.com/">See Pario →</a>
     </section>
 
     <!-- CTA -->
