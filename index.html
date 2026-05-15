@@ -49,6 +49,20 @@
             z-index: 100;
         }
 
+        /* Anchor-target sections: offset for the sticky header so section headings stay clear of the nav */
+        #services,
+        #methodology,
+        #writing {
+            scroll-margin-top: 110px;
+        }
+        @media (max-width: 768px) {
+            #services,
+            #methodology,
+            #writing {
+                scroll-margin-top: 80px;
+            }
+        }
+
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
