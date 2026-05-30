@@ -67,18 +67,20 @@
 
   .banner .greeting {
     font-family: 'Source Serif Pro', Georgia, 'Times New Roman', serif;
-    font-size: 26px;
+    font-size: 23px;
     font-weight: 600;
-    margin-bottom: 8px;
-    line-height: 1.2;
+    margin-bottom: 14px;
+    line-height: 1.25;
     color: #FFFFFF;
+    display: block;
   }
 
   .banner .subgreeting {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.5;
     font-weight: 500;
     color: #FFFFFF;
+    display: block;
   }
 
   .body {
@@ -424,10 +426,19 @@
     var originalText = saveBtn.innerHTML;
     saveBtn.innerHTML = 'Saving...';
 
-    htmlToImage.toPng(card, {
-      pixelRatio: 3,
-      backgroundColor: '#F5F6F8',
-      style: { borderRadius: '16px' }
+    var fontsReady = (document.fonts && document.fonts.ready)
+      ? document.fonts.ready
+      : Promise.resolve();
+
+    fontsReady.then(function() {
+      return new Promise(function(resolve) { setTimeout(resolve, 150); });
+    }).then(function() {
+      return htmlToImage.toPng(card, {
+        pixelRatio: 3,
+        backgroundColor: '#F5F6F8',
+        cacheBust: true,
+        style: { borderRadius: '16px' }
+      });
     }).then(function(dataUrl) {
       saveBtn.disabled = false;
       saveBtn.innerHTML = originalText;
