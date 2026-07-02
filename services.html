@@ -247,6 +247,86 @@
     line-height: 1.6;
   }
 
+  /* Expert Advisory emphasis */
+  .group-category-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .group-category-row .group-category { margin-bottom: 0; }
+  .start-here {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px 3px 8px;
+    border-radius: 100px;
+    background: rgba(126,189,65,0.12);
+    color: var(--teal-dim);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .start-here::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+  .network-note {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: -14px 0 34px;
+  }
+  .network-note .network-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 600;
+  }
+  .network-chip {
+    padding: 5px 13px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    background: var(--paper);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .network-chip:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* Sub-category blocks (within a group) */
+  .block + .block {
+    margin-top: 52px;
+    padding-top: 48px;
+    border-top: 1px solid var(--rule);
+  }
+  .block-title {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .block-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
   /* Closing CTA */
   .closing {
     padding: 96px 0 120px;
@@ -359,119 +439,154 @@
         </p>
     </section>
 
-    <!-- GROUP 01 -->
+    <!-- GROUP 01 — Advisory -->
     <section class="group">
         <div class="group-marker">01</div>
         <div>
-            <div class="group-category">Active deals</div>
-            <h2 class="group-title">Run a deal</h2>
-            <p class="group-summary">There's a transaction on the table — a new purchase, a competitive process, a contract heading to signature. The work is time-bound and the outcome is measurable.</p>
+            <div class="group-category">Advisory</div>
 
-            <div class="service-items">
-                <div class="service-item">
-                    <span class="arrow">→</span>
-                    <div>
-                        <div class="service-trigger">A competitive bid needs to be run</div>
-                        <div class="service-detail">RFP structure, vendor evaluation criteria, quote normalization, and scoring methodology that survives stakeholder scrutiny.</div>
+            <!-- Expert Advisory -->
+            <div class="block">
+                <h2 class="block-title">Expert Advisory <span class="start-here">Start here</span></h2>
+                <p class="block-subtitle">An insider's perspective</p>
+                <p class="group-summary">A specific question about a deal, a vendor, or a market. Paid hourly engagements for founders, operators, and expert networks who need a senior practitioner's read without a full engagement.</p>
+
+                <div class="network-note">
+                    <span class="network-label">Available through</span>
+                    <span class="network-chip">10EQS</span>
+                    <span class="network-chip">Synquery</span>
+                </div>
+
+                <div class="service-items">
+                    <div class="service-item">
+                        <span class="arrow">→</span>
+                        <div>
+                            <div class="service-trigger">A deal that doesn't feel right</div>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <span class="arrow">→</span>
+                        <div>
+                            <div class="service-trigger">A vendor you can't get a straight answer from</div>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <span class="arrow">→</span>
+                        <div>
+                            <div class="service-trigger">A market you're trying to break into</div>
+                        </div>
                     </div>
                 </div>
-                <div class="service-item">
-                    <span class="arrow">→</span>
-                    <div>
-                        <div class="service-trigger">A deal needs a second set of eyes</div>
-                        <div class="service-detail">Contract redline, commercial term review, negotiation position development — independent perspective before you sign.</div>
+            </div>
+
+            <!-- Run the deal -->
+            <div class="block">
+                <h2 class="block-title">Run the deal</h2>
+                <p class="group-summary">A transaction on the table or a renewal on the horizon — a new purchase, a competitive process, a contract heading to signature, or an agreement that no longer fits. Deal strategy and negotiation support for the moments where the wrong vendor move costs millions.</p>
+
+                <div class="service-items">
+                    <div class="service-item">
+                        <span class="arrow">→</span>
+                        <div>
+                            <div class="service-trigger">A competitive bid needs to be run</div>
+                            <div class="service-detail">RFP structure, vendor evaluation criteria, quote normalization, and scoring methodology that survives stakeholder scrutiny.</div>
+                        </div>
                     </div>
-                </div>
-                <div class="service-item">
-                    <span class="arrow">→</span>
-                    <div>
-                        <div class="service-trigger">A business case needs building</div>
-                        <div class="service-detail">TCO modeling, alternative analysis, and approval support to get spend through finance, IT, and the executive team.</div>
+                    <div class="service-item">
+                        <span class="arrow">→</span>
+                        <div>
+                            <div class="service-trigger">A deal needs a second set of eyes</div>
+                            <div class="service-detail">Contract redline, commercial term review, negotiation position development — independent perspective before you sign.</div>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <span class="arrow">→</span>
+                        <div>
+                            <div class="service-trigger">A business case needs building</div>
+                            <div class="service-detail">TCO modeling, alternative analysis, and approval support to get spend through finance, IT, and the executive team.</div>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <span class="arrow">→</span>
+                        <div>
+                            <div class="service-trigger">A renewal is 6–18 months out</div>
+                            <div class="service-detail">Position development, benchmarking, leverage strategy. Renewal outcomes are decided long before the quote arrives.</div>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <span class="arrow">→</span>
+                        <div>
+                            <div class="service-trigger">A master agreement needs renegotiation</div>
+                            <div class="service-detail">Post-M&A integration, business model change, or terms that have drifted out of alignment with how you actually use the product.</div>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <span class="arrow">→</span>
+                        <div>
+                            <div class="service-trigger">Multiple contracts with the same vendor</div>
+                            <div class="service-detail">Consolidation into a single optimized agreement — better commercial terms, cleaner administration, fewer renewal cycles to manage.</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GROUP 02 -->
+    <!-- GROUP 02 — License Intelligence -->
     <section class="group">
         <div class="group-marker">02</div>
         <div>
-            <div class="group-category">Portfolio</div>
-            <h2 class="group-title">Optimize what you have</h2>
-            <p class="group-summary">The deal already happened. Now the question is whether the agreement still fits — pricing, terms, scope, vendor count — and how to fix it on the next cycle.</p>
-
-            <div class="service-items">
-                <div class="service-item">
-                    <span class="arrow">→</span>
-                    <div>
-                        <div class="service-trigger">A renewal is 6–18 months out</div>
-                        <div class="service-detail">Position development, benchmarking, leverage strategy. Renewal outcomes are decided long before the quote arrives.</div>
-                    </div>
-                </div>
-                <div class="service-item">
-                    <span class="arrow">→</span>
-                    <div>
-                        <div class="service-trigger">A master agreement needs renegotiation</div>
-                        <div class="service-detail">Post-M&A integration, business model change, or terms that have drifted out of alignment with how you actually use the product.</div>
-                    </div>
-                </div>
-                <div class="service-item">
-                    <span class="arrow">→</span>
-                    <div>
-                        <div class="service-trigger">Multiple contracts with the same vendor</div>
-                        <div class="service-detail">Consolidation into a single optimized agreement — better commercial terms, cleaner administration, fewer renewal cycles to manage.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GROUP 03 -->
-    <section class="group">
-        <div class="group-marker">03</div>
-        <div>
-            <div class="group-category">Foundation</div>
+            <div class="group-category">License Intelligence</div>
             <h2 class="group-title">Know what you own</h2>
-            <p class="group-summary">Before optimization comes visibility. License entitlements, usage reality, and audit exposure are the foundation everything else builds on.</p>
+            <p class="group-summary">Unknown license exposure, an audit notice, or an inherited software estate nobody can fully account for. Forensic work on what you actually own and where the risk sits — before a vendor does it for you.</p>
 
             <div class="service-items">
                 <div class="service-item">
                     <span class="arrow">→</span>
                     <div>
                         <div class="service-trigger">Nobody knows what software they own</div>
-                        <div class="service-detail">Entitlement audit, audit defense, and license reconciliation — reconcile what you bought against what you're using before a vendor does it for you.</div>
+                        <div class="service-detail">Entitlement audit, usage reconciliation, and license baselining — reconcile what you bought against what you're actually using.</div>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <span class="arrow">→</span>
+                    <div>
+                        <div class="service-trigger">An audit notice just landed</div>
+                        <div class="service-detail">Audit defense and a defensible entitlement position — get ahead of the vendor's numbers before you respond, not after.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GROUP 04 -->
+    <!-- GROUP 03 — Enablement -->
     <section class="group">
-        <div class="group-marker">04</div>
+        <div class="group-marker">03</div>
         <div>
-            <div class="group-category">Expert Advisory</div>
-            <h2 class="group-title">An insider's perspective</h2>
-            <p class="group-summary">A specific question about a deal, a vendor, or a market. Paid hourly engagements for founders, operators, and expert networks including 10EQS and Synquery who need a senior practitioner's read without a full engagement.</p>
+            <div class="group-category">Enablement</div>
+            <h2 class="group-title">Build the capability in-house</h2>
+            <p class="group-summary">You want the discipline and methodology inside your team rather than purchased per engagement. Training, coaching, and curriculum that installs a repeatable sourcing operating model.</p>
 
             <div class="service-items">
                 <div class="service-item">
                     <span class="arrow">→</span>
                     <div>
-                        <div class="service-trigger">A deal that doesn't feel right</div>
+                        <div class="service-trigger">Your team runs deals, but not the same way twice</div>
+                        <div class="service-detail">Playbooks, templates, and a repeatable operating model so outcomes don't depend on who's in the room.</div>
                     </div>
                 </div>
                 <div class="service-item">
                     <span class="arrow">→</span>
                     <div>
-                        <div class="service-trigger">A vendor you can't get a straight answer from</div>
+                        <div class="service-trigger">You'd rather own the capability than rent it</div>
+                        <div class="service-detail">Hands-on coaching and mentorship on live deals — a senior practitioner alongside your team, not a slide deck.</div>
                     </div>
                 </div>
                 <div class="service-item">
                     <span class="arrow">→</span>
                     <div>
-                        <div class="service-trigger">A market you're trying to break into</div>
+                        <div class="service-trigger">Procurement policy isn't sticking</div>
+                        <div class="service-detail">Case-study-driven training that changes how people actually buy — not just what the policy manual says.</div>
                     </div>
                 </div>
             </div>
